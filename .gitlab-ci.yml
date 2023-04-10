@@ -6,7 +6,8 @@
 variables:
      GRADLE_OPTS: "-Dorg.gradle.daemon=false"
 
-
+before_script:
+    - cd Backend
      
 stages:  
     - build
