@@ -1,4 +1,4 @@
-package codecrusaders.service;
+package codecrusaders.business;
 
 import codecrusaders.domain.RegressionTest;
 import codecrusaders.domain.SubTest;
