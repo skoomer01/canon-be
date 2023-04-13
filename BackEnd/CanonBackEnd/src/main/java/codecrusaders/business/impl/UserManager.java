@@ -1,4 +1,4 @@
-package codecrusaders.business.ManagerImpl;
+package codecrusaders.business.impl;
 
 import codecrusaders.domain.User;
 import codecrusaders.repository.UserRepository;

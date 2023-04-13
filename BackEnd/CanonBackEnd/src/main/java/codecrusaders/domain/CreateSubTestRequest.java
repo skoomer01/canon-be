@@ -5,14 +5,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TestStep {
-    private Long id;
-    private Long subTestId;
+public class CreateSubTestRequest {
+    @NotNull
     private boolean testResult;
-    private String description;
-    private ErrorMessage message;
+    @NotNull
+    private Long testId;
 }
