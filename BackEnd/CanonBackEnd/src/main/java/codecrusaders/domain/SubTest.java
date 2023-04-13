@@ -13,6 +13,6 @@ import java.util.List;
 public class SubTest {
     private Long id;
     private boolean testResult;
-    private List<TestStep> testSteps;
+    private Long testId;
 
 }
