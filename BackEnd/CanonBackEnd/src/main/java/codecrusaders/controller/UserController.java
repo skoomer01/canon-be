@@ -1,6 +1,6 @@
 package codecrusaders.controller;
 
-import codecrusaders.business.UserManager;
+import codecrusaders.business.IUserManager;
 import codecrusaders.domain.Http.GetAllUsersResponse;
 import codecrusaders.domain.Http.RegisterUserRequest;
 import codecrusaders.domain.Http.RegisterUserResponse;
@@ -15,7 +15,7 @@ import javax.validation.Valid;
 @AllArgsConstructor
 
 public class UserController {
-    private final UserManager userManager;
+    private final IUserManager userManager;
 
     @PostMapping()
     public ResponseEntity<RegisterUserResponse> createAccount(@RequestBody @Valid RegisterUserRequest request){

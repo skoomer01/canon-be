@@ -1,7 +1,6 @@
 package codecrusaders.controller;
 
-import codecrusaders.business.BranchManager;
-import codecrusaders.business.ManagerImpl.BranchManagerImp;
+import codecrusaders.business.IBranchManager;
 import codecrusaders.domain.Http.*;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,7 +14,7 @@ import javax.validation.Valid;
 @AllArgsConstructor
 
 public class BranchController {
-    private final BranchManager branchManager;
+    private final IBranchManager branchManager;
 
     @PostMapping()
     public ResponseEntity<RegisterBranchResponse> createBranch(@RequestBody @Valid RegisterBranchRequest request){

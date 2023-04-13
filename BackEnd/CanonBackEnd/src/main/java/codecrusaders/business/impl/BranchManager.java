@@ -1,11 +1,11 @@
-package codecrusaders.business.ManagerImpl;
+package codecrusaders.business.impl;
 
-import codecrusaders.business.BranchManager;
-import codecrusaders.business.exception.AccountAlreadyExistsException;
+import codecrusaders.business.IBranchManager;
 import codecrusaders.business.exception.BranchAlreadyExistsException;
+import codecrusaders.business.impl.converters.BranchConverter;
+import codecrusaders.business.impl.converters.UserConverter;
 import codecrusaders.domain.Branch;
 import codecrusaders.domain.Http.*;
-import codecrusaders.domain.User;
 import codecrusaders.repository.BranchRepository;
 import codecrusaders.repository.entity.BranchEntity;
 import codecrusaders.repository.entity.UserEntity;
@@ -16,7 +16,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class BranchManagerImp implements BranchManager {
+public class BranchManager implements IBranchManager {
     private final BranchRepository branchRepository;
 
 

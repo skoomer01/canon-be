@@ -1,4 +1,4 @@
-package codecrusaders.business.ManagerImpl;
+package codecrusaders.business.impl.converters;
 
 import codecrusaders.domain.Branch;
 import codecrusaders.domain.User;

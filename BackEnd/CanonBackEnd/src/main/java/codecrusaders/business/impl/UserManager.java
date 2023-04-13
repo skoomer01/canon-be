@@ -1,8 +1,9 @@
-package codecrusaders.business.ManagerImpl;
+package codecrusaders.business.impl;
 
+import codecrusaders.business.IUserManager;
 import codecrusaders.business.exception.AccountAlreadyExistsException;
+import codecrusaders.business.impl.converters.UserConverter;
 import codecrusaders.domain.Http.GetAllUsersResponse;
-import codecrusaders.domain.Http.RegisterBranchRequest;
 import codecrusaders.domain.Http.RegisterUserRequest;
 import codecrusaders.domain.Http.RegisterUserResponse;
 import codecrusaders.domain.User;
@@ -15,7 +16,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class UserManagerImp implements codecrusaders.business.UserManager {
+public class UserManager implements IUserManager {
 
     private final UserRepository userRepository;
     @Override
