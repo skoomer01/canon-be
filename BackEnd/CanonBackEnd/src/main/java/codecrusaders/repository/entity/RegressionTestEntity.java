@@ -1,5 +1,6 @@
-package codecrusaders.domain;
+package codecrusaders.repository.entity;
 
+import codecrusaders.domain.SubTest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,10 +11,9 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RegressionTest {
+public class RegressionTestEntity {
     private Long id;
     private boolean testResult;
-    //private int heat;
-    private int duration ;
+    private int duration;
     private Long testSetId;
 }
