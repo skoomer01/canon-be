@@ -10,13 +10,12 @@ import java.util.Optional;
 
 @AllArgsConstructor
 public class BranchConverter {
-    private final UserConverter userConverter;
-    public Optional<Branch> Convert(BranchEntity branchEntity){
+    public static Branch convert(BranchEntity branchEntity){
         Branch branchToBeConverted = Branch.builder()
                 .branchName(branchEntity.getBranchName())
-                .user(userConverter.Convert(branchEntity.getUser()).get())
+                .user(UserConverter.convert(branchEntity.getUser()))
                 .build();
 
-        Optional<Branch> returnedBranch = Optional.of(branchToBeConverted);
+        Branch returnedBranch = branchToBeConverted;
         return returnedBranch;
     }}

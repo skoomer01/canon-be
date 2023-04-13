@@ -3,16 +3,16 @@ package codecrusaders.business.ManagerImpl;
 import codecrusaders.business.BranchManager;
 import codecrusaders.business.exception.AccountAlreadyExistsException;
 import codecrusaders.business.exception.BranchAlreadyExistsException;
-import codecrusaders.domain.Http.RegisterBranchRequest;
-import codecrusaders.domain.Http.RegisterBranchResponse;
-import codecrusaders.domain.Http.RegisterUserRequest;
-import codecrusaders.domain.Http.RegisterUserResponse;
+import codecrusaders.domain.Branch;
+import codecrusaders.domain.Http.*;
 import codecrusaders.domain.User;
 import codecrusaders.repository.BranchRepository;
 import codecrusaders.repository.entity.BranchEntity;
 import codecrusaders.repository.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -29,7 +29,7 @@ public class BranchManagerImp implements BranchManager {
         BranchEntity branchEntity = saveBranch(request);
         return RegisterBranchResponse.builder()
                 .id(branchEntity.getId())
-                .user(userConverter.Convert(branchEntity.getUser()).get())
+                .user(UserConverter.convert(branchEntity.getUser()))
                 .build();
     }
 
@@ -39,5 +39,18 @@ public class BranchManagerImp implements BranchManager {
                 .branchName(branch.getBranchName())
                 .user(user)
                 .build());
+    }
+
+    public GetAllBranchesResponse getAllBranches(){
+        List<BranchEntity> results = branchRepository.findAll();
+
+        List<Branch> branches = results
+                .stream()
+                .map(BranchConverter::convert)
+                .toList();
+
+        return GetAllBranchesResponse.builder()
+                .branchList(branches)
+                .build();
     }
 }

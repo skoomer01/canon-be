@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @NoArgsConstructor
 public class UserConverter {
-    public Optional<User> Convert(UserEntity userEntity){
+    public static User convert(UserEntity userEntity){
         User UserToBeConverted = User.builder()
                 .id(userEntity.getId())
                 .userRole(userEntity.getUserRole())
@@ -17,7 +17,7 @@ public class UserConverter {
                 .password(userEntity.getPassword())
                 .build();
 
-        Optional<User> returnedUser = Optional.of(UserToBeConverted);
+        User returnedUser = UserToBeConverted;
         return returnedUser;
     }
 }

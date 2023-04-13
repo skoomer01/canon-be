@@ -1,12 +1,17 @@
 package codecrusaders.business.ManagerImpl;
 
 import codecrusaders.business.exception.AccountAlreadyExistsException;
+import codecrusaders.domain.Http.GetAllUsersResponse;
+import codecrusaders.domain.Http.RegisterBranchRequest;
 import codecrusaders.domain.Http.RegisterUserRequest;
 import codecrusaders.domain.Http.RegisterUserResponse;
+import codecrusaders.domain.User;
 import codecrusaders.repository.UserRepository;
 import codecrusaders.repository.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -32,5 +37,18 @@ public class UserManagerImp implements codecrusaders.business.UserManager {
                 .userName(user.getUserName())
                 .password(user.getPassword())
                 .build());
+    }
+
+    public GetAllUsersResponse getAllUsers(){
+        List<UserEntity> results = userRepository.findAll();
+
+        List<User> users = results
+                .stream()
+                .map(UserConverter::convert)
+                .toList();
+
+        return GetAllUsersResponse.builder()
+                .userList(users)
+                .build();
     }
 }
