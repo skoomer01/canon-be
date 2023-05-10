@@ -6,14 +6,26 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
+import java.util.Date;
+
+@Entity
 @Data
-@Builder
+@Table(name = "tests")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class RegressionTestEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "testid")
     private Long id;
-    private boolean testResult;
-    private int duration;
+    @Column(name = "testname")
+    private String testName;
+    @Column(name = "testdate")
+    private LocalDateTime testDate;
+    @Column(name = "testsetid")
     private Long testSetId;
 }

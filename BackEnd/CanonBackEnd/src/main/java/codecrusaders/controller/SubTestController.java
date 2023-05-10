@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/SubTest")
+@RequestMapping("/SubTests")
 @AllArgsConstructor
 public class SubTestController {
     private final SubTestManager subTestManager;

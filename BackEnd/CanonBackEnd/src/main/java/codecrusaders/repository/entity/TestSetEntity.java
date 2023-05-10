@@ -6,15 +6,26 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import javax.persistence.*;
+import java.util.Date;
 
+@Entity
 @Data
-@Builder
+@Table(name = "testsets")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class TestSetEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "testsetid")
     private Long id;
+    @Column(name = "testsetname")
+    private String testSetName;
+    @Column(name = "testbatchid")
     private Long testBatchId;
+    @Column(name = "testsettime")
+    private Date testSetTime;
 
 
 

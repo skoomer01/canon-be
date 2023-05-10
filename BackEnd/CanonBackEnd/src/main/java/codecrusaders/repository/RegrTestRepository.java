@@ -1,12 +1,14 @@
 package codecrusaders.repository;
 
+import codecrusaders.repository.entity.ErrorEntity;
 import codecrusaders.repository.entity.RegressionTestEntity;
 import codecrusaders.repository.entity.TestSetEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
-public interface RegrTestRepository {
+@Repository
+public interface RegrTestRepository extends JpaRepository<RegressionTestEntity, Long> {
     boolean existsById(long id);
 
     RegressionTestEntity save(RegressionTestEntity testSet);

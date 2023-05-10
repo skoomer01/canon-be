@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 public class ErrorMessageConverter {
     public static ErrorMessage convert(ErrorEntity errorEntity) {
         return ErrorMessage.builder()
-                .id(errorEntity.getId())
-                .message(errorEntity.getMessage())
+                .id(errorEntity.getErrorid())
+                .message(errorEntity.getErrorMessage())
                 .build();
     }
 }

@@ -1,26 +1,26 @@
 package codecrusaders.repository.entity;
 
-
+import codecrusaders.domain.Enum.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Set;
-
+import javax.persistence.*;
+@Entity
 @Data
-@Builder
+@Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "userid")
     private Long id;
-    private String username;
+    @Column(name = "username")
+    private String userName;
+    @Column(name = "password")
     private String password;
-    private Set<UserRoleEntity> userRoles;
+    @Column(name = "userrole")
+    private int userRole;
 }

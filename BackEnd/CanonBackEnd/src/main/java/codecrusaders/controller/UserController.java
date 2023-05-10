@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/Users")
 @AllArgsConstructor
 
 public class UserController {

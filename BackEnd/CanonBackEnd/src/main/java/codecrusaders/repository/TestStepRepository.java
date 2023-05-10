@@ -1,12 +1,14 @@
 package codecrusaders.repository;
 
+import codecrusaders.repository.entity.ErrorEntity;
 import codecrusaders.repository.entity.TestStepEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
-public interface TestStepRepository {
-    boolean existsById(long testStepId);
-    TestStepEntity save(TestStepEntity testStep);
-    public boolean stepExistByError(String errorMessage);
-    public List<TestStepEntity> findAll();
+@Repository
+public interface TestStepRepository extends JpaRepository<TestStepEntity, Long> {
+//    boolean existsById(long testStepId);
+//    boolean stepExistByError(String errorMessage);
+    List<TestStepEntity> findAll();
 }

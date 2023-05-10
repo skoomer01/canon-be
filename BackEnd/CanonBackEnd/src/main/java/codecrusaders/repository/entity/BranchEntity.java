@@ -7,15 +7,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 @Data
+@Table(name = "branches")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class BranchEntity {
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "branchid")
+    private Long branchid;
+    @Column(name = "branchname")
     private String branchName;
-    private boolean access;
-    private UserEntity user;
+    @Column(name = "ispublic")
+    private boolean isPublic;
 }
