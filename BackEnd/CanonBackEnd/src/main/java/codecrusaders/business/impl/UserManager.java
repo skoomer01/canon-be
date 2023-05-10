@@ -22,7 +22,7 @@ public class UserManager implements IUserManager {
     @Override
     public RegisterUserResponse registerUser(RegisterUserRequest request) {
 
-        UserEntity user = userRepository.findByUserName(request.getUserName());
+        UserEntity user = userRepository.findByUserName(request.getUsername());
 
         if(user == null){{
             throw new AccountAlreadyExistsException();
@@ -40,7 +40,7 @@ public class UserManager implements IUserManager {
     public UserEntity saveUser(RegisterUserRequest user){
 
         UserEntity temp = UserEntity.builder()
-                .userName(user.getUserName())
+                .userName(user.getUsername())
                 .password(user.getPassword())
                 .build();
         return userRepository.save(temp);

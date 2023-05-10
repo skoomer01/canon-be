@@ -23,7 +23,7 @@ public class LoginManager implements ILoginManager {
 
     @Override
     public LoginResponse login(LoginRequest loginRequest) {
-        UserEntity user = userRepository.findByUsername(loginRequest.getUsername());
+        UserEntity user = userRepository.findByUserName(loginRequest.getUsername());
         if (user == null) {
             throw new InvalidCredentialsException();
         }
@@ -42,14 +42,14 @@ public class LoginManager implements ILoginManager {
 
     private String generateAccessToken(UserEntity user) {
         Long userId = user.getId() >= 0 ? user.getId() : null;
-        List<String> roles = user.getUserRoles().stream()
-                .map(userRole -> userRole.getRole().toString())
-                .toList();
+//        List<String> roles = user.getUserRoles().stream()
+//                .map(userRole -> userRole.getRole().toString())
+//                .toList();
 
         return accessTokenEncoder.encode(
                 AccessToken.builder()
-                        .subject(user.getUsername())
-                        .roles(roles)
+                        .subject(user.getUserName())
+//                        .roles(roles)
                         .userId(userId)
                         .build());
     }
