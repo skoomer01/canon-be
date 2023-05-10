@@ -34,10 +34,12 @@ public class UserManager implements IUserManager {
 
     public UserEntity saveUser(RegisterUserRequest user){
 
-        return userRepository.saveUser(UserEntity.builder()
-                .userName(user.getUserName())
+       UserEntity savedEntity =  UserEntity.builder()
+                .username(user.getUserName())
                 .password(user.getPassword())
-                .build());
+                .build();
+        userRepository.saveUser(savedEntity);
+        return savedEntity;
     }
 
     public GetAllUsersResponse getAllUsers(){

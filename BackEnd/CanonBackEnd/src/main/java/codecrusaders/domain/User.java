@@ -1,10 +1,13 @@
 package codecrusaders.domain;
 
 import codecrusaders.domain.Enum.UserRole;
+import codecrusaders.repository.entity.UserRoleEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Set;
 
 @Data
 @Builder
@@ -14,5 +17,5 @@ public class User {
     private Long id;
     private String userName;
     private String password;
-    @Builder.Default private UserRole userRole = UserRole.A;
+    private Set<UserRoleEntity> userRoles;
 }
