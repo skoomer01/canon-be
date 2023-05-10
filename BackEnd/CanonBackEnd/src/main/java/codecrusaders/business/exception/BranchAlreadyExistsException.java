@@ -1,6 +1,5 @@
 package codecrusaders.business.exception;
 
-import codecrusaders.repository.BranchRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 

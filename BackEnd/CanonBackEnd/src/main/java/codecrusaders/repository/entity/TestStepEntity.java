@@ -1,15 +1,31 @@
 package codecrusaders.repository.entity;
 
-import codecrusaders.domain.ErrorMessage;
+import codecrusaders.domain.Enum.TestResult;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Builder
+import javax.persistence.*;
+
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "test_step")
 public class TestStepEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long subTestId;
-    private boolean testResult;
     private String description;
-    private ErrorEntity message;
+
+    @OneToOne(mappedBy = "testStep", cascade = CascadeType.ALL)
+    private ErrorMessageEntity message;
+
+    @ManyToOne
+    @JoinColumn(name = "subTestId", insertable = false, updatable = false)
+    private SubTestEntity subTest;
 }
+
