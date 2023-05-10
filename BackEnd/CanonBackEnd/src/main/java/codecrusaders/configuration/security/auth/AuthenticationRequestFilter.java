@@ -18,6 +18,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class AuthenticationRequestFilter extends OncePerRequestFilter {
@@ -55,9 +57,10 @@ public class AuthenticationRequestFilter extends OncePerRequestFilter {
     }
 
     private void setupSpringSecurityContext(AccessToken accessToken) {
+        List<String> roles = new ArrayList<>();
+        roles.add(accessToken.getRole());
         UserDetails userDetails = new User(accessToken.getSubject(), "",
-                accessToken.getRoles()
-                        .stream()
+                roles.stream()
                         .map(role -> new SimpleGrantedAuthority(SPRING_SECURITY_ROLE_PREFIX + role))
                         .toList());
 

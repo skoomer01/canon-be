@@ -14,14 +14,14 @@ import java.util.List;
 @AllArgsConstructor
 public class AccessToken {
     private String subject;
-    private List<String> roles;
+    private String role;
     private Long userId;
 
     @JsonIgnore
     public boolean hasRole(String roleName) {
-        if (roles == null) {
+        if (role == null) {
             return false;
         }
-        return roles.contains(roleName);
+        return role.contains(roleName);
     }
 }

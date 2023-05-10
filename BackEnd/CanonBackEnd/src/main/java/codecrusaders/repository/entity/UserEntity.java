@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.util.Set;
+
 @Entity
 @Data
 @Table(name = "users")
@@ -22,5 +24,5 @@ public class UserEntity {
     @Column(name = "password")
     private String password;
     @Column(name = "userrole")
-    private int userRole;
+    private String userRole;
 }

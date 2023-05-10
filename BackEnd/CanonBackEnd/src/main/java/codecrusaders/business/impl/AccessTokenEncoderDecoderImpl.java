@@ -34,8 +34,8 @@ public class AccessTokenEncoderDecoderImpl implements AccessTokenEncoder, Access
     @Override
     public String encode(AccessToken accessToken) {
         Map<String, Object> claimsMap = new HashMap<>();
-        if (!CollectionUtils.isEmpty(accessToken.getRoles())) {
-            claimsMap.put("roles", accessToken.getRoles());
+        if (accessToken.getRole().isBlank()) {
+            claimsMap.put("role", accessToken.getRole());
         }
         if (accessToken.getUserId() != null) {
             claimsMap.put("userId", accessToken.getUserId());
@@ -57,11 +57,9 @@ public class AccessTokenEncoderDecoderImpl implements AccessTokenEncoder, Access
             Jwt jwt = Jwts.parserBuilder().setSigningKey(key).build().parse(accessTokenEncoded);
             Claims claims = (Claims) jwt.getBody();
 
-            List<String> roles = claims.get("roles", List.class);
-
             return AccessToken.builder()
                     .subject(claims.getSubject())
-                    .roles(roles)
+                    .role(claims.get("role", String.class))
                     .userId(claims.get("userId", Long.class))
                     .build();
         } catch (JwtException e) {
