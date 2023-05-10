@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Optional;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -24,7 +26,7 @@ public class Branch {
             testBatches.get(i).setTestResult();
             if(testBatches.get(i).getTestResult() == TestResult.FAILED){
                 this.testResult = TestResult.FAILED;
-                break;
+                return;
             }
         }
         this.testResult = TestResult.PASSED;

@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Optional;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -24,7 +26,7 @@ public class RegressionTest {
             subTests.get(i).setTestResult();
             if(subTests.get(i).getTestResult() == TestResult.FAILED){
                 this.testResult = TestResult.FAILED;
-                break;
+                return;
             }
         }
         this.testResult = TestResult.PASSED;

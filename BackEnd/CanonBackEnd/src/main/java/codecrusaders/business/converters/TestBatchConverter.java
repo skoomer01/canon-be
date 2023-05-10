@@ -3,6 +3,8 @@ package codecrusaders.business.converters;
 import codecrusaders.domain.core.TestBatch;
 import codecrusaders.repository.entity.TestBatchEntity;
 
+import java.util.Collections;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class TestBatchConverter {
@@ -13,7 +15,9 @@ public class TestBatchConverter {
                 .version(entity.getVersion())
                 .commitShal(entity.getCommitShal())
                 .branchID(entity.getBranchID())
-                .testSets(entity.getTestSets().stream()
+                .testSets(Optional.ofNullable(entity.getTestSets())
+                        .orElse(Collections.emptyList())
+                        .stream()
                         .map(TestSetConverter::toDomain)
                         .collect(Collectors.toList()))
                 .build();
@@ -26,7 +30,9 @@ public class TestBatchConverter {
         entity.setVersion(domain.getVersion());
         entity.setCommitShal(domain.getCommitShal());
         entity.setBranchID(domain.getBranchID());
-        entity.setTestSets(domain.getTestSets().stream()
+        entity.setTestSets(Optional.ofNullable(domain.getTestSets())
+                .orElse(Collections.emptyList())
+                .stream()
                 .map(TestSetConverter::toEntity)
                 .collect(Collectors.toList()));
         return entity;

@@ -17,7 +17,6 @@ import java.util.List;
 public class BranchController {
 
     private final IBranchService branchService;
-
     @GetMapping("/error/{errorID}")
     public ResponseEntity<List<Branch>> getBranchesWithErrorId(@PathVariable Long errorID) {
         try {

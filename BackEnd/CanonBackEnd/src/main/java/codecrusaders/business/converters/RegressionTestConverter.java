@@ -1,32 +1,44 @@
 package codecrusaders.business.converters;
 
 import codecrusaders.domain.core.RegressionTest;
+import codecrusaders.domain.core.SubTest;
+import codecrusaders.domain.core.TestBatch;
 import codecrusaders.repository.entity.RegressionTestEntity;
+import codecrusaders.repository.entity.SubTestEntity;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class RegressionTestConverter {
     public static RegressionTest toDomain(RegressionTestEntity entity) {
+        List<SubTest> subTests = Optional.ofNullable(entity.getSubTests())
+                .orElse(Collections.emptyList())
+                .stream()
+                .map(SubTestConverter::toDomain)
+                .collect(Collectors.toList());
         return RegressionTest.builder()
                 .id(entity.getId())
                 .heat(entity.getHeat())
                 .duration(entity.getDuration())
                 .testSetId(entity.getTestSetId())
-                .subTests(entity.getSubTests().stream()
-                        .map(SubTestConverter::toDomain)
-                        .collect(Collectors.toList()))
+                .subTests(subTests)
                 .build();
     }
 
     public static RegressionTestEntity toEntity(RegressionTest domain) {
-        RegressionTestEntity entity = new RegressionTestEntity();
-        entity.setId(domain.getId());
-        entity.setHeat(domain.getHeat());
-        entity.setDuration(domain.getDuration());
-        entity.setTestSetId(domain.getTestSetId());
-        entity.setSubTests(domain.getSubTests().stream()
-                .map(SubTestConverter::toEntity)
-                .collect(Collectors.toList()));
-        return entity;
+        return RegressionTestEntity.builder()
+                .id(domain.getId())
+                .heat(domain.getHeat())
+                .duration(domain.getDuration())
+                .testSetId(domain.getTestSetId())
+                .subTests(Optional.ofNullable(domain.getSubTests())
+                        .orElse(Collections.emptyList())
+                        .stream()
+                        .map(SubTestConverter::toEntity)
+                        .collect(Collectors.toList()))
+                .build();
     }
+
 }

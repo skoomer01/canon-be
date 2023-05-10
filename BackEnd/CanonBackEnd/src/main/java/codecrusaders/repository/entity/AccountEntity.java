@@ -1,8 +1,10 @@
 package codecrusaders.repository.entity;
 
 import codecrusaders.domain.Enum.UserRole;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -10,6 +12,8 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "account")
+@AllArgsConstructor
+@NoArgsConstructor
 public class AccountEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

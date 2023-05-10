@@ -7,7 +7,9 @@ import codecrusaders.repository.entity.SubTestEntity;
 import codecrusaders.repository.entity.TestStepEntity;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class SubTestConverter {
@@ -15,7 +17,9 @@ public class SubTestConverter {
         return SubTest.builder()
                 .id(entity.getId())
                 .regressionTestID(entity.getRegressionTestID())
-                .testSteps(entity.getTestSteps().stream()
+                .testSteps(Optional.ofNullable(entity.getTestSteps())
+                        .orElse(Collections.emptyList())
+                        .stream()
                         .map(TestStepConverter::toDomain)
                         .collect(Collectors.toList()))
                 .build();
@@ -24,7 +28,9 @@ public class SubTestConverter {
         return SubTestEntity.builder()
                 .id(domain.getId())
                 .regressionTestID(domain.getRegressionTestID())
-                .testSteps(domain.getTestSteps().stream()
+                .testSteps(Optional.ofNullable(domain.getTestSteps())
+                        .orElse(Collections.emptyList())
+                        .stream()
                         .map(TestStepConverter::toEntity)
                         .collect(Collectors.toList()))
                 .build();

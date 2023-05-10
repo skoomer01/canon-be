@@ -12,7 +12,6 @@ public class AccountConverter {
                 .role(entity.getRole())
                 .build();
     }
-
     public static AccountEntity toEntity(Account domain) {
         AccountEntity entity =
                 AccountEntity.builder()
