@@ -25,13 +25,19 @@ public class TemporaryUserRepo implements UserRepository {
         }
         return false;
     }
+    @Override
+    public UserEntity findByUsername(String userName)
+    {return null;}
+
 
     @Override
     public boolean userExistByName(String userName) {
         return this.savedUsers
                 .stream()
-                .anyMatch(userEntity -> userEntity.getUserName().equals(userName));
+                .anyMatch(userEntity -> userEntity.getUsername().equals(userName));
     }
+
+
 
     @Override
     public List<UserEntity> findAll() {
