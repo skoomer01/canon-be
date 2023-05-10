@@ -5,9 +5,8 @@ import codecrusaders.repository.UserRepository;
 import codecrusaders.repository.entity.UserEntity;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
 @Repository
 public class TemporaryUserRepo implements UserRepository {
     private static long NEXT_ID = 1;
@@ -27,7 +26,13 @@ public class TemporaryUserRepo implements UserRepository {
     }
     @Override
     public UserEntity findByUsername(String userName)
-    {return null;}
+    {
+        return this.savedUsers
+                .stream()
+                .filter(userEntity -> Objects.equals(userEntity.getUsername(), userName))
+                .findFirst()
+                .orElse(null);
+    }
 
 
     @Override

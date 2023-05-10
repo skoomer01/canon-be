@@ -13,8 +13,10 @@ public class RegisterUserRequest {
 
     @NotNull
     @NotBlank
-    private String userName;
+    private String username;
     @NotNull
     @NotBlank
     private String password;
+
+    private String role;
 }
