@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+
 @Repository
 public class TemporaryUserRepo implements UserRepository {
     private static long NEXT_ID = 1;
@@ -25,12 +27,18 @@ public class TemporaryUserRepo implements UserRepository {
         }
         return false;
     }
+    @Override
+    public UserEntity findByUsername(String userName) {
+        return this.savedUsers
+                .stream()
+                .filter(userEntity -> userEntity.getUsername().equals(userName)).findFirst().orElse(null);
+    }
 
     @Override
     public boolean userExistByName(String userName) {
         return this.savedUsers
                 .stream()
-                .anyMatch(userEntity -> userEntity.getUserName().equals(userName));
+                .anyMatch(userEntity -> userEntity.getUsername().equals(userName));
     }
 
     @Override
