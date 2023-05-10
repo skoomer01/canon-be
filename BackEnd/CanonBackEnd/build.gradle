@@ -25,6 +25,8 @@ dependencies {
     implementation 'org.hibernate:hibernate-core:5.5.7.Final'
     implementation 'javax.persistence:javax.persistence-api:2.2'
     implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.2'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.2'
     implementation 'net.logstash.logback:logstash-logback-encoder:6.6'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
