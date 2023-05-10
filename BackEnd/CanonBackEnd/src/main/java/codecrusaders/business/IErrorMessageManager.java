@@ -1,9 +1,7 @@
 package codecrusaders.business;
 
-import codecrusaders.domain.ErrorMessage;
-
-import java.util.Optional;
+import codecrusaders.repository.entity.ErrorEntity;
 
 public interface IErrorMessageManager {
-    Optional<ErrorMessage> getError(long errorId);
+    ErrorEntity getError(long errorId);
 }

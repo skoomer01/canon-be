@@ -7,8 +7,7 @@ public class SubTestConverter {
     public static SubTest convert(SubTestEntity subTestEntity) {
         return SubTest.builder()
                 .id(subTestEntity.getId())
-                .testResult(subTestEntity.isTestResult())
-                .testId(subTestEntity.getTestId())
+                .testId(subTestEntity.getTestID())
                 .build();
     }
 }

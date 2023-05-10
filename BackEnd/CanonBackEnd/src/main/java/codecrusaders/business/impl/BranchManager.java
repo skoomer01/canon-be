@@ -22,23 +22,26 @@ public class BranchManager implements IBranchManager {
 
     @Override
     public RegisterBranchResponse registerBranch(RegisterBranchRequest request) {
-        if(branchRepository.branchExistByName(request.getBranchName())){
-            throw new BranchAlreadyExistsException();
-        }
+
+//        if(branchRepository.findByName(request.getBranchName())){
+//            throw new BranchAlreadyExistsException();
+//        }
         UserConverter userConverter = new UserConverter();
         BranchEntity branchEntity = saveBranch(request);
         return RegisterBranchResponse.builder()
-                .id(branchEntity.getId())
-                .user(UserConverter.convert(branchEntity.getUser()))
+                .id(branchEntity.getBranchid())
+                //.user(UserConverter.convert(branchEntity.getUser()))
                 .build();
     }
 
     public BranchEntity saveBranch(RegisterBranchRequest branch){
-        UserEntity user = UserEntity.builder().id(branch.getUserId()).build();
-        return branchRepository.saveBranch(BranchEntity.builder()
+
+        BranchEntity temp = BranchEntity.builder()
                 .branchName(branch.getBranchName())
-                .user(user)
-                .build());
+                .build();
+        return branchRepository.save(temp);
+
+
     }
 
     public GetAllBranchesResponse getAllBranches(){

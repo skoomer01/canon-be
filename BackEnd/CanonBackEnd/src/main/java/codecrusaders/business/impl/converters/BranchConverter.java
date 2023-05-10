@@ -13,7 +13,6 @@ public class BranchConverter {
     public static Branch convert(BranchEntity branchEntity){
         Branch branchToBeConverted = Branch.builder()
                 .branchName(branchEntity.getBranchName())
-                .user(UserConverter.convert(branchEntity.getUser()))
                 .build();
 
         Branch returnedBranch = branchToBeConverted;

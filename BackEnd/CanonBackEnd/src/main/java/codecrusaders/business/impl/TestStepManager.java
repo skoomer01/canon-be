@@ -30,8 +30,8 @@ public class TestStepManager implements ITestStepManager {
             TestStepEntity newTestStep = TestStepEntity.builder()
                     .testResult(request.isTestResult())
                     .description(request.getDescription())
-                    .message(convertErrorMessage(request.getMessage()))
-                    .subTestId(request.getSubTestId())
+                    //.message(convertErrorMessage(request.getMessage()))
+                    .subTestID(request.getSubTestId())
                     .build();
             errorMessageRepository.save(convertErrorMessage(request.getMessage()));
             return testStepRepository.save(newTestStep);
@@ -39,7 +39,7 @@ public class TestStepManager implements ITestStepManager {
     private ErrorEntity convertErrorMessage(ErrorMessage errorMessage)
     {
         return ErrorEntity.builder()
-                .message(errorMessage.getMessage())
+                //.message(errorMessage.getMessage())
                 .build();
     }
 

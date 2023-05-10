@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/TestStep")
+@RequestMapping("/TestSteps")
 @AllArgsConstructor
 public class TestStepController {
     private final TestStepManager testStepManager;

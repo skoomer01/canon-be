@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Optional;
 @RestController
-@RequestMapping("/regrtests")
+@RequestMapping("/Tests")
 @AllArgsConstructor
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class RegressionTestController {

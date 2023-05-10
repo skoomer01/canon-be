@@ -1,13 +1,16 @@
 package codecrusaders.repository;
 
+import codecrusaders.repository.entity.BranchEntity;
 import codecrusaders.repository.entity.ErrorEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-
-public interface ErrorMessageRepository {
+@Repository
+public interface ErrorMessageRepository extends JpaRepository<ErrorEntity, Long> {
     boolean existsById(long errorId);
     ErrorEntity save(ErrorEntity errorEntity);
-    public List<ErrorEntity> findAll();
+    List<ErrorEntity> findAll();
     Optional<ErrorEntity> findById(long errorId);
 }

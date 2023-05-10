@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Optional;
 @RestController
-@RequestMapping("/testsets")
+@RequestMapping("/TestSets")
 @AllArgsConstructor
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class TestSetController {
