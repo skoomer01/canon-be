@@ -12,5 +12,5 @@ import java.util.List;
 @AllArgsConstructor
 public class TestSet {
     private Long id;
-    List<RegressionTest> tests;
+    private Long testBatchId;
 }

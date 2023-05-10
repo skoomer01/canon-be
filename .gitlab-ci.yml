@@ -15,12 +15,14 @@ stages:
 
 build:  
     stage: build
-    script:   
+    script:
+     - cd CanonBackEnd
      - ./gradlew assemble
 
 test:  
     stage: test
-    script:   
+    script:
+     - cd CanonBackEnd
      - ./gradlew test
 
 

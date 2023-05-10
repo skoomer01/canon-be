@@ -6,13 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Branch {
-    private Long id;
-    private List<TestBatch> testBatches;
-    private String branchName;
-    private User user;
+public class CreateTestSetRequest {
+    private Long testBatchId;
 }

@@ -1,18 +1,21 @@
-package codecrusaders.domain;
+package codecrusaders.repository.entity;
 
+import codecrusaders.domain.RegressionTest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Branch {
+public class TestSetEntity {
     private Long id;
-    private List<TestBatch> testBatches;
-    private String branchName;
-    private User user;
+    private Long testBatchId;
+
+
+
 }

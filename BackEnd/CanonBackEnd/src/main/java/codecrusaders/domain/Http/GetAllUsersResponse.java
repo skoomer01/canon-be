@@ -1,5 +1,6 @@
-package codecrusaders.domain;
+package codecrusaders.domain.Http;
 
+import codecrusaders.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,9 +11,6 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Branch {
-    private Long id;
-    private List<TestBatch> testBatches;
-    private String branchName;
-    private User user;
+public class GetAllUsersResponse {
+private List<User> userList;
 }

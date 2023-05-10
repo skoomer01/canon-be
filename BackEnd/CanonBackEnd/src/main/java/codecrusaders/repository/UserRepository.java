@@ -2,9 +2,9 @@ package codecrusaders.repository;
 
 import codecrusaders.domain.User;
 import codecrusaders.repository.entity.UserEntity;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserRepository {
     public boolean saveUser(UserEntity user);

@@ -15,5 +15,5 @@ public class RegressionTest {
     private boolean testResult;
     //private int heat;
     private int duration ;
-    private List<SubTest> subTests;
+    private Long testSetId;
 }
