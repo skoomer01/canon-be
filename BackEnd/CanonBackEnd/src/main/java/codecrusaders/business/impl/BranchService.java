@@ -32,6 +32,22 @@ public class BranchService implements IBranchService {
         return branches;
     }
     @Override
+    public List<Branch> getBranchesByCommit(String commitShal){
+        List<Branch> branches = repository.findBranchesByCommit(commitShal).stream()
+                .map(BranchConverter::toDomain)
+                .collect(Collectors.toList());
+        branches.forEach(branch -> branch.setTestResult());
+        return branches;
+    }
+    @Override
+    public List<Branch> getBranchesByVersion(String version){
+        List<Branch> branches = repository.findBranchesByVersion(version).stream()
+                .map(BranchConverter::toDomain)
+                .collect(Collectors.toList());
+        branches.forEach(branch -> branch.setTestResult());
+        return branches;
+    }
+    @Override
     public Branch getBranchById(Long id){
         return null;
     }

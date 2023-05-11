@@ -19,9 +19,13 @@ import java.util.Optional;
 public class RegressionTestEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "heat")
     private int heat;
+    @Column(name = "duration")
     private int duration;
+    @Column(name = "testSetId")
     private Long testSetId;
 
     @ManyToOne

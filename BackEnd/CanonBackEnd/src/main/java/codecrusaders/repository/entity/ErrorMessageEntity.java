@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Table(name = "error_message")
 public class ErrorMessageEntity {
     @Id
-    @Column(nullable = false)
+    @Column(nullable = false, name = "id")
     private Long id;
     @Column(name="message")
     private String message;

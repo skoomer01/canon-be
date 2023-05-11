@@ -17,16 +17,17 @@ import javax.persistence.*;
 public class AccountEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, name = "username")
     private String username;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "password")
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = false, name="role")
     private UserRole role;
 }
 

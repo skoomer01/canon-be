@@ -19,7 +19,9 @@ import java.util.Optional;
 public class SubTestEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long id;
+    @Column(name="regressionTestID")
     private Long regressionTestID;
 
     @ManyToOne

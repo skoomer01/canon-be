@@ -9,15 +9,26 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface IBranchRepository extends JpaRepository<BranchEntity, Long> {
-    @Query(value = "SELECT DISTINCT b.* " +
-            "FROM branch b " +
-            "JOIN test_batch tb ON b.id = tb.branch_id " +
-            "JOIN test_set ts ON tb.id = ts.test_batch_id " +
-            "JOIN regression_test rt ON ts.id = rt.test_set_id " +
-            "JOIN sub_test st ON rt.id = st.regression_test_id " +
-            "JOIN test_step tstep ON st.id = tstep.sub_test_id " +
-            "JOIN error_message em ON tstep.message_id = em.id " +
-            "WHERE em.id = :errorID", nativeQuery = true)
+    @Query("SELECT DISTINCT b " +
+            "FROM BranchEntity b " +
+            "JOIN b.testBatches tb " +
+            "JOIN tb.testSets ts " +
+            "JOIN ts.regressionTests rt " +
+            "JOIN rt.subTests st " +
+            "JOIN st.testSteps tstep " +
+            "JOIN tstep.message em " +
+            "WHERE em.id = :errorID")
     List<BranchEntity> findBranchesByErrorID(@Param("errorID") Long errorID);
 
+    @Query("SELECT DISTINCT b " +
+            "FROM BranchEntity b " +
+            "JOIN b.testBatches tb " +
+            "WHERE tb.commitShal = :commitShal")
+    List<BranchEntity> findBranchesByCommit(@Param("commitShal") String commitShal);
+
+    @Query("SELECT DISTINCT b " +
+            "FROM BranchEntity b " +
+            "JOIN b.testBatches tb " +
+            "WHERE tb.version = :version")
+    List<BranchEntity> findBranchesByVersion(@Param("version") String version);
 }

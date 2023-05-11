@@ -22,7 +22,7 @@ public class Branch {
     private Visibility visibility;
     private Account createdUser;
     public void setTestResult(){
-        for(int i =0; i < testBatches.size(); i++){
+        for(int i = 0; i < testBatches.size(); i++){
             testBatches.get(i).setTestResult();
             if(testBatches.get(i).getTestResult() == TestResult.FAILED){
                 this.testResult = TestResult.FAILED;

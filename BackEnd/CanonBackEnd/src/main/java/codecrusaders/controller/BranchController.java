@@ -17,10 +17,28 @@ import java.util.List;
 public class BranchController {
 
     private final IBranchService branchService;
-    @GetMapping("/error/{errorID}")
+    @GetMapping("/filter/error/{errorID}")
     public ResponseEntity<List<Branch>> getBranchesWithErrorId(@PathVariable Long errorID) {
         try {
             List<Branch> branches = branchService.getBranchesWithErrorId(errorID);
+            return ResponseEntity.ok(branches);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+    @GetMapping("/filter/commit/{commit}")
+    public ResponseEntity<List<Branch>> getBranchesByCommit(@PathVariable String commit) {
+        try {
+            List<Branch> branches = branchService.getBranchesByCommit(commit);
+            return ResponseEntity.ok(branches);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+    @GetMapping("/filter/version/{version}")
+    public ResponseEntity<List<Branch>> getBranchesByVersion(@PathVariable String version) {
+        try {
+            List<Branch> branches = branchService.getBranchesByVersion(version);
             return ResponseEntity.ok(branches);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
@@ -32,6 +50,16 @@ public class BranchController {
         try {
             Branch createdBranch = branchService.createBranch(branch);
             return ResponseEntity.status(HttpStatus.CREATED).body(createdBranch);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<Branch>> getBranchesWithErrorId() {
+        try {
+            List<Branch> branches = branchService.getBranches();
+            return ResponseEntity.ok(branches);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
