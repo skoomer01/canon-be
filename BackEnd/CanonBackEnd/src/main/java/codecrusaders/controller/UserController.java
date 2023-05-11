@@ -13,7 +13,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/Users")
 @AllArgsConstructor
-
+@CrossOrigin(origins = "http://localhost:3000/", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.PATCH})
 public class UserController {
     private final IUserManager userManager;
 

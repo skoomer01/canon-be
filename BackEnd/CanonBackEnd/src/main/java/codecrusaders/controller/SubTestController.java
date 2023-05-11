@@ -12,6 +12,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/SubTests")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000/", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.PATCH})
 public class SubTestController {
     private final SubTestManager subTestManager;
     @GetMapping

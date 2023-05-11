@@ -14,7 +14,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/Tests")
 @AllArgsConstructor
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:3000/", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.PATCH})
 public class RegressionTestController {
     private RegrTestManager regrTestManager;
     @PostMapping()

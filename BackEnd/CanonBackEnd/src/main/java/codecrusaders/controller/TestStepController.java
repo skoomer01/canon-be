@@ -14,6 +14,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/TestSteps")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000/", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.PATCH})
 public class TestStepController {
     private final TestStepManager testStepManager;
     @GetMapping
