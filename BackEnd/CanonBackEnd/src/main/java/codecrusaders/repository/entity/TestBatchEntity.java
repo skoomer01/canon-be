@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @Builder
@@ -20,16 +19,17 @@ public class TestBatchEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String buildTime;
+
     private String version;
+
+    private String buildTime;
+
     private String commitShal;
-    private Long branchID;
+
+    @OneToMany(mappedBy = "testBatch", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<TestSetEntity> testSets;
 
     @ManyToOne
-    @JoinColumn(name = "branchID", insertable = false, updatable = false)
+    @JoinColumn(name = "branch_id")
     private BranchEntity branch;
-
-    @OneToMany(mappedBy = "testBatch", cascade = CascadeType.ALL)
-    private List<TestSetEntity> testSets;
 }
-

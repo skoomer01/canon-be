@@ -1,6 +1,6 @@
 package codecrusaders.business;
 
-import codecrusaders.domain.core.SubTest;
+import codecrusaders.domain.nestedstructure.SubTest;
 
 import java.util.List;
 

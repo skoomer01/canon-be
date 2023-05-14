@@ -1,9 +1,6 @@
 package codecrusaders.business;
 
-import codecrusaders.domain.core.Branch;
-import codecrusaders.repository.entity.BranchEntity;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import codecrusaders.domain.nestedstructure.Branch;
 
 import java.util.List;
 

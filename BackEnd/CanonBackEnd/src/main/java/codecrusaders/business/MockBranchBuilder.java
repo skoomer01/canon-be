@@ -1,13 +1,9 @@
 package codecrusaders.business;
 
-import codecrusaders.domain.Enum.TestResult;
 import codecrusaders.domain.Enum.Visibility;
-import codecrusaders.domain.core.Account;
-import codecrusaders.domain.core.Branch;
-import codecrusaders.domain.core.TestBatch;
+import codecrusaders.domain.Account;
+import codecrusaders.domain.nestedstructure.Branch;
 import lombok.RequiredArgsConstructor;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 public class MockBranchBuilder {
@@ -17,7 +13,7 @@ public class MockBranchBuilder {
 
     public void createBranch(String branchName, Visibility visibility, Account createdUser){
         Branch createBranchRequest = Branch.builder()
-                .branchName(branchName)
+                .name(branchName)
                 .visibility(visibility)
                 .createdUser(createdUser)
                 .build();

@@ -1,6 +1,6 @@
 package codecrusaders.business;
 
-import codecrusaders.domain.core.TestStep;
+import codecrusaders.domain.nestedstructure.TestStep;
 
 import java.util.List;
 

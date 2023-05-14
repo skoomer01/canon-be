@@ -1,6 +1,6 @@
 package codecrusaders.business;
 
-import codecrusaders.domain.core.ErrorMessage;
+import codecrusaders.domain.nestedstructure.ErrorMessage;
 
 import java.util.List;
 

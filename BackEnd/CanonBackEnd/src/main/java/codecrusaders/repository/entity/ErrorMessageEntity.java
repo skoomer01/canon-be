@@ -15,16 +15,12 @@ import javax.persistence.*;
 @Table(name = "error_message")
 public class ErrorMessageEntity {
     @Id
-    @Column(nullable = false, name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name="message")
-    private String message;
-    @Column(name="testStepID")
-    private Long testStepID;
 
-    @OneToOne
-    @JoinColumn(name = "testStepID", insertable = false, updatable = false)
-    private TestStepEntity testStep;
+    private String message;
+
 }
+
 
 

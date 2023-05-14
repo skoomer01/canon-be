@@ -2,9 +2,8 @@ package codecrusaders.business.impl;
 
 import codecrusaders.business.IBranchService;
 import codecrusaders.business.converters.BranchConverter;
-import codecrusaders.domain.core.Branch;
+import codecrusaders.domain.nestedstructure.Branch;
 import codecrusaders.repository.IBranchRepository;
-import codecrusaders.repository.entity.BranchEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

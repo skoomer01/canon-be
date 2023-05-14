@@ -1,12 +1,12 @@
 package codecrusaders.business;
 
-import codecrusaders.domain.core.TestBatch;
-import codecrusaders.domain.core.TestSet;
+import codecrusaders.domain.nestedstructure.TestBatch;
+import codecrusaders.domain.nestedstructure.TestSet;
 
 import java.util.List;
 
 public interface ITestBatchService {
-    TestBatch createTestBatch(TestSet testSet);
+    TestBatch createTestBatch(TestBatch testBatcht);
     TestBatch getTestBatchesById(Long id);
     List<TestBatch> getTestBatchesByBranchId(Long BranchId);
     List<TestBatch> getTestBatches();

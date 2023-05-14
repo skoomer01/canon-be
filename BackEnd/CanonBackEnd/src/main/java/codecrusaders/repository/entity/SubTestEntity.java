@@ -6,9 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @Builder
@@ -19,16 +17,16 @@ import java.util.Optional;
 public class SubTestEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
     private Long id;
-    @Column(name="regressionTestID")
-    private Long regressionTestID;
 
-    @ManyToOne
-    @JoinColumn(name = "regressionTestID", insertable = false, updatable = false)
+    private String name;
+
+    @OneToMany(mappedBy = "subTest", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<TestStepEntity> testSteps;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "regressionTest_id")
     private RegressionTestEntity regressionTest;
 
-    @OneToMany(mappedBy = "subTest", cascade = CascadeType.ALL)
-    private List<TestStepEntity> testSteps;
 }
 

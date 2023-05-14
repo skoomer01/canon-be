@@ -1,22 +1,29 @@
 package codecrusaders.business.converters;
 
-import codecrusaders.domain.Enum.TestResult;
-import codecrusaders.domain.core.SubTest;
-import codecrusaders.domain.core.TestStep;
+import codecrusaders.domain.nestedstructure.RegressionTest;
+import codecrusaders.domain.nestedstructure.SubTest;
+import codecrusaders.repository.entity.RegressionTestEntity;
 import codecrusaders.repository.entity.SubTestEntity;
-import codecrusaders.repository.entity.TestStepEntity;
+import codecrusaders.repository.entity.TestSetEntity;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class SubTestConverter {
     public static SubTest toDomain(SubTestEntity entity) {
+        if(entity == null){
+            return null;
+        }
         return SubTest.builder()
                 .id(entity.getId())
-                .regressionTestID(entity.getRegressionTestID())
+                .name(entity.getName())
+                .regressionTest(
+                        RegressionTest.builder()
+                                .id(entity.getRegressionTest().getId())
+                                .name(entity.getRegressionTest().getName())
+                                .build()
+                )
                 .testSteps(Optional.ofNullable(entity.getTestSteps())
                         .orElse(Collections.emptyList())
                         .stream()
@@ -25,9 +32,17 @@ public class SubTestConverter {
                 .build();
     }
     public static SubTestEntity toEntity(SubTest domain) {
+        if(domain == null){
+            return null;
+        }
         return SubTestEntity.builder()
                 .id(domain.getId())
-                .regressionTestID(domain.getRegressionTestID())
+                .name(domain.getName())
+                .regressionTest(
+                        RegressionTestEntity.builder()
+                        .id(domain.getRegressionTest().getId())
+                        .name(domain.getRegressionTest().getName())
+                        .build())
                 .testSteps(Optional.ofNullable(domain.getTestSteps())
                         .orElse(Collections.emptyList())
                         .stream()

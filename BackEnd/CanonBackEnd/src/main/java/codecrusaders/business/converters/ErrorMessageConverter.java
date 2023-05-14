@@ -1,9 +1,9 @@
 package codecrusaders.business.converters;
 
-import codecrusaders.domain.core.ErrorMessage;
+import codecrusaders.domain.nestedstructure.ErrorMessage;
+import codecrusaders.domain.nestedstructure.TestStep;
 import codecrusaders.repository.entity.ErrorMessageEntity;
-
-import java.util.Optional;
+import codecrusaders.repository.entity.TestStepEntity;
 
 public class ErrorMessageConverter {
     public static ErrorMessage toDomain(ErrorMessageEntity entity) {
@@ -13,7 +13,6 @@ public class ErrorMessageConverter {
         return ErrorMessage.builder()
                 .id(entity.getId())
                 .message(entity.getMessage())
-                .testStepID(entity.getTestStepID())
                 .build();
     }
 
@@ -24,7 +23,6 @@ public class ErrorMessageConverter {
         ErrorMessageEntity entity = new ErrorMessageEntity();
         entity.setId(domain.getId());
         entity.setMessage(domain.getMessage());
-        entity.setTestStepID(domain.getTestStepID());
         return entity;
     }
 }

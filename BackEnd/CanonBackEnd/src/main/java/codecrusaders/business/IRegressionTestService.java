@@ -1,6 +1,6 @@
 package codecrusaders.business;
 
-import codecrusaders.domain.core.RegressionTest;
+import codecrusaders.domain.nestedstructure.RegressionTest;
 
 import java.util.List;
 

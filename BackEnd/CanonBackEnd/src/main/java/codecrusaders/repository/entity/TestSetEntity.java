@@ -1,14 +1,13 @@
 package codecrusaders.repository.entity;
 
+import codecrusaders.repository.entity.TestBatchEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Data
 @Builder
@@ -20,13 +19,14 @@ public class TestSetEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long testBatchId;
+
+    @Column(nullable = false)
+    private String name;
+
+    @OneToMany(mappedBy = "testSet", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<RegressionTestEntity> regressionTests;
 
     @ManyToOne
-    @JoinColumn(name = "testBatchId", insertable = false, updatable = false)
+    @JoinColumn(name = "testBatch_id")
     private TestBatchEntity testBatch;
-
-    @OneToMany(mappedBy = "testSet", cascade = CascadeType.ALL)
-    private List<RegressionTestEntity> regressionTests;
 }
-

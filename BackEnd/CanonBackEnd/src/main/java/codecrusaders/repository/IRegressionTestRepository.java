@@ -1,6 +1,5 @@
 package codecrusaders.repository;
 
-import codecrusaders.domain.core.RegressionTest;
 import codecrusaders.repository.entity.RegressionTestEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
