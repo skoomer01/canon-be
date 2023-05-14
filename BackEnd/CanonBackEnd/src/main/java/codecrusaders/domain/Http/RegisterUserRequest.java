@@ -1,6 +1,5 @@
 package codecrusaders.domain.Http;
 
-import codecrusaders.domain.Enum.UserRole;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,5 +17,4 @@ public class RegisterUserRequest {
     @NotBlank
     private String password;
 
-    private String role;
 }

@@ -1,12 +1,10 @@
 package codecrusaders.repository.entity;
 
-import codecrusaders.domain.Enum.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Data
@@ -23,6 +21,5 @@ public class UserEntity {
     private String userName;
     @Column(name = "password")
     private String password;
-    @Column(name = "userrole")
-    private String userRole;
+
 }

@@ -46,7 +46,6 @@ public class UserManager implements IUserManager {
         UserEntity temp = UserEntity.builder()
                 .userName(user.getUsername())
                 .password(encodedPassword)
-                .userRole(user.getRole())
                 .build();
         return userRepository.save(temp);
 
