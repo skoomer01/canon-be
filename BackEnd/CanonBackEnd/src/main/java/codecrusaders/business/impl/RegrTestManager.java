@@ -42,4 +42,13 @@ public class RegrTestManager implements IRegressionTestManager {
                 .regressionTests(regressionTests)
                 .build();
     }
+
+    @Override
+    public GetLatestTestsResponse getLatestTests() {
+        List<RegressionTest> latestRegressionTests = regrTestRepo.findLatestTests()
+                .stream()
+                .map(RegrTestConverter::convert)
+                .toList();
+        return GetLatestTestsResponse.builder().latestTests(latestRegressionTests).build();
+    }
 }
