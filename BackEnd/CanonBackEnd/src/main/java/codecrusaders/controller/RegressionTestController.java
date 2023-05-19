@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import java.util.Optional;
 @RestController
@@ -27,4 +28,15 @@ public class RegressionTestController {
     public ResponseEntity<GetRegressionTestResponse> getRegrTests(){
         return ResponseEntity.ok(regrTestManager.getAllRegrTests());
     }
+    @GetMapping("{id}")
+    public ResponseEntity<RegressionTest> getStudent(@PathVariable(value = "id") final long id) {
+        final Optional<RegressionTest> testOptional = regrTestManager.getTestByID(id);
+        if (testOptional.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(testOptional.get());
+    }
+
+
+
 }

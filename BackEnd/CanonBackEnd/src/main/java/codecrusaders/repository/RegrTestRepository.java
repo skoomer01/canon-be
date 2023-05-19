@@ -17,5 +17,4 @@ public interface RegrTestRepository extends JpaRepository<RegressionTestEntity, 
 
     List<RegressionTestEntity> findAll();
 
-    RegressionTestEntity findById(long id);
 }

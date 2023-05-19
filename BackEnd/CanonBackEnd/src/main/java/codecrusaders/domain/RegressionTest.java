@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import java.time.LocalDateTime;
 import java.util.List;
 @Data
 @Builder
@@ -12,8 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class RegressionTest {
     private Long id;
-    private boolean testResult;
-    //private int heat;
-    private int duration ;
+    private String testName;
+    private LocalDateTime testDate;
     private Long testSetId;
 }

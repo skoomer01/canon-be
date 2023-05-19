@@ -42,4 +42,14 @@ public class RegrTestManager implements IRegressionTestManager {
                 .regressionTests(regressionTests)
                 .build();
     }
+
+    @Override
+    public Optional<RegressionTest> getTestByID(long testid) {
+
+
+        return regrTestRepo.findById(testid).map(RegrTestConverter::convert);
+    }
+
+
+
 }
