@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+<<<<<<< Updated upstream
+=======
+import java.util.Set;
+>>>>>>> Stashed changes
 
 @Entity
 @Data
@@ -21,5 +25,10 @@ public class UserEntity {
     private String userName;
     @Column(name = "password")
     private String password;
+<<<<<<< Updated upstream
 
+=======
+    @Column(name = "userrole")
+    private String userRole;
+>>>>>>> Stashed changes
 }

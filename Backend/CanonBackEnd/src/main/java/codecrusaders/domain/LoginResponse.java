@@ -9,12 +9,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
-    private Long id;
-    private String userName;
-    private String password;
-<<<<<<< Updated upstream
-=======
-    private String userRole;
->>>>>>> Stashed changes
+public class LoginResponse {
+    private String accessToken;
 }
