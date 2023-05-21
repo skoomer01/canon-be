@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ErrorMessageConverter {
     public static ErrorMessage convert(ErrorEntity errorEntity) {
+        if(errorEntity == null){
+            return null;
+        }
         return ErrorMessage.builder()
                 .id(errorEntity.getErrorid())
                 .message(errorEntity.getErrorMessage())

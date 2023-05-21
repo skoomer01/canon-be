@@ -6,6 +6,7 @@ import codecrusaders.domain.CreateTestStepResponse;
 import codecrusaders.domain.GetTestStepsResponse;
 import codecrusaders.domain.TestStep;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import java.util.Optional;
 @AllArgsConstructor
 @CrossOrigin(origins = "http://localhost:3000/", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.PATCH})
 public class TestStepController {
+    @Autowired
     private final TestStepManager testStepManager;
     @GetMapping
     public ResponseEntity<GetTestStepsResponse> getSubTests() {

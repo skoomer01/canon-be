@@ -16,14 +16,10 @@ public class ErrorMessageManager implements IErrorMessageManager {
     private final ErrorMessageRepository errorMessageRepository;
 
     @Override
-    public ErrorEntity getError(long errorId)
+    public ErrorMessage getError(long errorId)
     {
-        return null; //errorMessageRepository.findById(errorId).map(ErrorMessageConverter::convert);
-
-    }
-    @Override
-    public Optional<ErrorMessage> getErrorByTestStepId(long testStepId){
-        Optional<ErrorEntity> testStepEntityOptional = errorMessageRepository.findByTestStepId(testStepId);
-        return testStepEntityOptional.map(ErrorMessageConverter::convert);
+        Optional<ErrorEntity> errorEntityOptional = errorMessageRepository.findById(errorId);
+        ErrorEntity entity = errorEntityOptional.get();
+        return ErrorMessageConverter.convert(entity);
     }
 }

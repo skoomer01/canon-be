@@ -13,6 +13,5 @@ public interface ErrorMessageRepository extends JpaRepository<ErrorEntity, Long>
     ErrorEntity save(ErrorEntity errorEntity);
     List<ErrorEntity> findAll();
     Optional<ErrorEntity> findById(long errorId);
-    Optional<ErrorEntity> findByTestStepId(long testStepId);
 
 }
