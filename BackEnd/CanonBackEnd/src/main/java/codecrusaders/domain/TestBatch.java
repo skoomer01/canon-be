@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 @Data
 @Builder
@@ -12,8 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 public class TestBatch {
     private Long id;
-    private List<TestSet> testSets;
     private String buildTime;
     private String version;
     private String commitShal;
+    private LocalDateTime dateTime;
+    private Branch branch;
+    private List<TestSet> testSets;
 }

@@ -2,10 +2,7 @@ package codecrusaders.business.impl;
 
 import codecrusaders.business.ITestSetManager;
 import codecrusaders.business.impl.converters.TestSetConverter;
-import codecrusaders.domain.CreateTestSetRequest;
-import codecrusaders.domain.CreateTestSetResponse;
-import codecrusaders.domain.GetTestSetResponse;
-import codecrusaders.domain.TestSet;
+import codecrusaders.domain.*;
 import codecrusaders.repository.RegrTestRepository;
 import codecrusaders.repository.TestSetRepository;
 import codecrusaders.repository.entity.TestSetEntity;
@@ -27,7 +24,7 @@ public class TestSetManager implements ITestSetManager {
     }
     private Optional<TestSetEntity> saveNewTestSet(CreateTestSetRequest request){
         TestSetEntity newTestSet = TestSetEntity.builder()
-                .testBatchId(request.getTestBatchId())
+//                .testBatch(request.getTestBatchId())
                 .build();
         return Optional.of(testSetRepo.save(newTestSet));
     }
@@ -41,6 +38,11 @@ public class TestSetManager implements ITestSetManager {
         return GetTestSetResponse.builder()
                 .testSets(testSets)
                 .build();
+    }
+
+    @Override
+    public CountFailedTestStepResponse countFailedTestStep(CountFailedTestStepRequest request) {
+        return CountFailedTestStepResponse.builder().failedCounter(testSetRepo.countFailedTestStepsByTestSetId(request.getTestSetId())).build();
     }
 
 }
