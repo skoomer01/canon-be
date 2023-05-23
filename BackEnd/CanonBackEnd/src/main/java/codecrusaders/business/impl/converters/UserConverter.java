@@ -12,8 +12,7 @@ public class UserConverter {
     public static User convert(UserEntity userEntity){
         User UserToBeConverted = User.builder()
                 .id(userEntity.getId())
-                .userRoles(userEntity.getUserRoles())
-                .userName(userEntity.getUsername())
+                .userName(userEntity.getUserName())
                 .password(userEntity.getPassword())
                 .build();
 

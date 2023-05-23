@@ -42,12 +42,10 @@ public class LoginManager implements ILoginManager {
 
     private String generateAccessToken(UserEntity user) {
         Long userId = user.getId() >= 0 ? user.getId() : null;
-        String role = user.getUserRole();
 
         return accessTokenEncoder.encode(
                 AccessToken.builder()
                         .subject(user.getUserName())
-                        .role(role)
                         .userId(userId)
                         .build());
     }

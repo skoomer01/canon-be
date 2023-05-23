@@ -17,8 +17,4 @@ public class RegisterUserRequest {
     @NotBlank
     private String password;
 
-<<<<<<< Updated upstream
-=======
-    private String role;
->>>>>>> Stashed changes
 }

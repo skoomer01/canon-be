@@ -46,10 +46,6 @@ public class UserManager implements IUserManager {
         UserEntity temp = UserEntity.builder()
                 .userName(user.getUsername())
                 .password(encodedPassword)
-<<<<<<< Updated upstream
-=======
-                .userRole(user.getRole())
->>>>>>> Stashed changes
                 .build();
         return userRepository.save(temp);
 
