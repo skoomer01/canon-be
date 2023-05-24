@@ -14,6 +14,6 @@ public interface TestStepRepository extends JpaRepository<TestStepEntity, Long> 
 //    boolean existsById(long testStepId);
 //    boolean stepExistByError(String errorMessage);
     List<TestStepEntity> findAll();
-    List<TestStepEntity> findBySubTestId(Long subTestId);
+    List<TestStepEntity> findBySubTestID(Long subTestId);
     Optional<TestStepEntity> findById(Long id);
 }

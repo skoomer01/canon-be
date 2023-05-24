@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import java.util.Optional;
+
 @RestController
 @RequestMapping("/Tests")
 @AllArgsConstructor
@@ -23,13 +24,12 @@ public class RegressionTestController {
         CreateRegrTestResponse response = regrTestManager.createRegressionTest(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
-    @CrossOrigin(origins = "http://localhost:8080/")
     @GetMapping
     public ResponseEntity<GetRegressionTestResponse> getRegrTests(){
         return ResponseEntity.ok(regrTestManager.getAllRegrTests());
     }
     @GetMapping("{id}")
-    public ResponseEntity<RegressionTest> getStudent(@PathVariable(value = "id") final long id) {
+    public ResponseEntity<RegressionTest> GetTestByIDResponse(@PathVariable(value = "id") final long id) {
         final Optional<RegressionTest> testOptional = regrTestManager.getTestByID(id);
         if (testOptional.isEmpty()) {
             return ResponseEntity.notFound().build();

@@ -23,6 +23,14 @@ public class SubTestController {
     public ResponseEntity<CreateSubTestResponse> createSubTest(@RequestBody @Valid CreateSubTestRequest request){
         CreateSubTestResponse response = subTestManager.registerSubTest(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
-
     }
+    @GetMapping("{testid}")
+    public ResponseEntity<GetSubTestsResponse> getSubTestsByTestID(@PathVariable Long testid) {
+        GetSubTestsResponse response = subTestManager.getSubTestsByTestID(testid);
+        return ResponseEntity.ok(response);
+    }
+
+
+
+
 }

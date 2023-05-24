@@ -9,5 +9,5 @@ public interface IRegressionTestManager {
     CreateRegrTestResponse createRegressionTest(CreateRegrTestRequest request);
     GetRegressionTestResponse getAllRegrTests();
 
-    Optional<RegressionTest> getTestByID(long testid);
+    Optional<RegressionTest> getTestByID(long id);
 }

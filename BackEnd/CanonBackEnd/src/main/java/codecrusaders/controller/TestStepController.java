@@ -29,7 +29,7 @@ public class TestStepController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
     }
-    @GetMapping("/test-steps/{subTestId}")
+    @GetMapping("/SubtestID/{subTestId}")
     public ResponseEntity<GetTestStepsResponse> getTestStepsBySubTestId(@PathVariable Long subTestId) {
         GetTestStepsResponse response = testStepManager.getTestStepBySubTestId(subTestId);
         return ResponseEntity.ok(response);

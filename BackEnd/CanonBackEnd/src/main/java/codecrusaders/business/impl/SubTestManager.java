@@ -42,4 +42,16 @@ public class SubTestManager implements ISubTestManager {
                 .subTests(subTests)
                 .build();
     }
+
+    @Override
+    public GetSubTestsResponse getSubTestsByTestID(Long id) {
+        List<SubTest> subTests = subTestRepository.findByTestID(id)
+                .stream()
+                .map(SubTestConverter::convert)
+                .toList();
+
+        return GetSubTestsResponse.builder()
+                .subTests(subTests)
+                .build();
+    }
 }

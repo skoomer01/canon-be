@@ -17,6 +17,7 @@ public class TestStepConverter {
                 .id(testStepEntity.getId())
                 .testResult(testStepEntity.isTestResult())
                 .description(testStepEntity.getDescription())
+                .errorid(testStepEntity.getErrorID())
                 .subTestId(testStepEntity.getSubTestID())
                 .build();
     }

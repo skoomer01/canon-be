@@ -11,8 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TestStep {
     private Long id;
+    private String testStepName;
     private Long subTestId;
-    private boolean testResult;
+    private Boolean testResult;
     private String description;
-    private ErrorMessage message;
+    private Long errorid;
 }
