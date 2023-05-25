@@ -58,7 +58,7 @@ public class TestStepManager implements ITestStepManager {
 
     @Override
     public GetTestStepsResponse getTestStepBySubTestId(Long subTestId){
-        List<TestStep> testSteps = testStepRepository.findBySubTestId(subTestId)
+        List<TestStep> testSteps = testStepRepository.findBySubTestID(subTestId)
                 .stream()
                 .map(TestStepConverter::convert)
                 .toList();
