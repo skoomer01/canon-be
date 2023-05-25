@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/SubTests")
@@ -24,11 +25,19 @@ public class SubTestController {
         CreateSubTestResponse response = subTestManager.registerSubTest(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
-    @GetMapping("{testid}")
+    @GetMapping("/{subtestid}")
+    public ResponseEntity<GetSubTestsResponse> findbyID(@PathVariable Long subtestid) {
+        GetSubTestsResponse response = subTestManager.findById(subtestid);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/TestID/{testid}")
     public ResponseEntity<GetSubTestsResponse> getSubTestsByTestID(@PathVariable Long testid) {
         GetSubTestsResponse response = subTestManager.getSubTestsByTestID(testid);
         return ResponseEntity.ok(response);
     }
+
+
 
 
 
