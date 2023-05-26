@@ -23,13 +23,12 @@ public class TestSetEntity {
     private Long id;
     @Column(name = "testsetname")
     private String testSetName;
-    @ManyToOne
-    @JoinColumn(name = "testbatchid")
-    private TestBatchEntity testBatchEntity;
+    @Column(name = "testbatchid")
+    private Long testBatchId;
     @Column(name = "testsettime")
     private Date testSetTime;
-    @OneToMany(mappedBy = "testSetEntity", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<RegressionTestEntity> regressionTestEntities;
+
+
 
 
 }

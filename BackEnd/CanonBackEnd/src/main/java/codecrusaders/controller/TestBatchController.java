@@ -2,9 +2,8 @@ package codecrusaders.controller;
 
 import codecrusaders.business.IBranchManager;
 import codecrusaders.business.ITestBatchManager;
-import codecrusaders.domain.GetAllTestBatchesFromABranchResponse;
+import codecrusaders.domain.*;
 import codecrusaders.domain.Http.*;
-import codecrusaders.domain.TestBatch;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +18,12 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000/", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.PATCH})
 public class TestBatchController {
 
-
-
+    private final ITestBatchManager testBatchManager;
+    @GetMapping("{id}")
+    public ResponseEntity<GetAllTestSetFromABatchResponse> getAllTestSetsByBatchId(@PathVariable Long id){
+        GetAllTestSetFromABatchResponse response = testBatchManager.getAllTestSetsWithBatchId(GetAllTestSetFromABatchRequest.builder().testBatchId(id).build());
+        return ResponseEntity.ok(response);
+    }
 
 
 }

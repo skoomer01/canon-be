@@ -14,7 +14,7 @@ import java.util.List;
 public class TestSet {
     private Long id;
     private String name;
-    private TestBatch testBatch;
+    private Long testBatchId;
     private Date testSetTime;
     private List<RegressionTest> regressionTests;
 }

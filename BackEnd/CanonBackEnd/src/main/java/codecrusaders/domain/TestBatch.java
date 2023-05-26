@@ -17,6 +17,6 @@ public class TestBatch {
     private String version;
     private String commitShal;
     private LocalDateTime dateTime;
-    private Branch branch;
-    private List<TestSet> testSets;
+    private Long branchId;
+
 }

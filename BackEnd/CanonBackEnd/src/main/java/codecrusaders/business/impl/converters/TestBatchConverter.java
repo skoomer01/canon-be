@@ -12,9 +12,8 @@ public class TestBatchConverter {
                 .version(entity.getVersion())
                 .buildTime(entity.getBuildTime())
                 .commitShal(entity.getCommitShal())
-                .branch(BranchConverter.convert(entity.getBranchEntity()))
+                .branchId(entity.getBranchId())
                 .dateTime(entity.getDateTime())
-                .testSets(entity.getTestSetEntities().stream().map(TestSetConverter::convert).toList())
                 .build();
     }
 }

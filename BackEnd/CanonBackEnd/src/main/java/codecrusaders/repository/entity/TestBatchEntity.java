@@ -30,10 +30,9 @@ public class TestBatchEntity {
     private String commitShal;
     @Column(name = "testbatchdate")
     private LocalDateTime dateTime;
-    @ManyToOne
-    @JoinColumn(name = "branchid")
-    private BranchEntity branchEntity;
 
-    @OneToMany(mappedBy = "testBatchEntity", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<TestSetEntity> testSetEntities;
+    @Column(name = "branchid")
+    private Long branchId;
+
+
 }

@@ -1,5 +1,8 @@
 package codecrusaders.business;
 
-public interface ITestBatchManager {
+import codecrusaders.domain.GetAllTestSetFromABatchRequest;
+import codecrusaders.domain.GetAllTestSetFromABatchResponse;
 
+public interface ITestBatchManager {
+    public GetAllTestSetFromABatchResponse getAllTestSetsWithBatchId(GetAllTestSetFromABatchRequest request);
 }

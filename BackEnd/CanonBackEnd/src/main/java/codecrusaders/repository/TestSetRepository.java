@@ -2,6 +2,7 @@ package codecrusaders.repository;
 
 import codecrusaders.domain.TestSet;
 import codecrusaders.repository.entity.ErrorEntity;
+import codecrusaders.repository.entity.TestBatchEntity;
 import codecrusaders.repository.entity.TestSetEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -26,4 +27,7 @@ public interface TestSetRepository extends JpaRepository<TestSetEntity, Long> {
             "                   JOIN tests t ON st.testid = t.testid" +
             "                   WHERE t.testsetid = :testSetId AND ts.testresult = 0", nativeQuery = true)
     int countFailedTestStepsByTestSetId(@Param("testSetId") Long testSetId);
+
+    @Query(value = "SELECT * FROM testsets WHERE testbatchid = :testbatchid", nativeQuery = true)
+    List<TestSetEntity> getAllTestSetsByBatchId(@Param("testbatchid")Long testBatchId);
 }

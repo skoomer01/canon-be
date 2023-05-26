@@ -8,9 +8,8 @@ public class TestSetConverter {
         return TestSet.builder()
                 .id(tsEntity.getId())
                 .name(tsEntity.getTestSetName())
-//                .testBatch(TestBatchConverter.convert(tsEntity.getTestBatchEntity()))
+                .testBatchId(tsEntity.getTestBatchId())
                 .testSetTime(tsEntity.getTestSetTime())
-                .regressionTests(tsEntity.getRegressionTestEntities().stream().map(RegrTestConverter::convert).toList())
                 .build();
     }
 }
