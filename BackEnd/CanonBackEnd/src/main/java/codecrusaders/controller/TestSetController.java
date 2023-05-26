@@ -28,6 +28,11 @@ public class TestSetController {
         return ResponseEntity.ok(testSetManager.getAllTestSets());
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<GetTestsByTestSetIdResponse> getAllTestsByTestSetId(@PathVariable Long id){
+        GetTestsByTestSetIdResponse response = testSetManager.getTestsByTestSetsId(GetTestsByTestSetIdRequest.builder().id(id).build());
+        return ResponseEntity.ok(response);
+    }
 //    @GetMapping
 //    public ResponseEntity<CountFailedTestStepResponse> getFailedCounterOfATestSet(@RequestBody @Valid CountFailedTestStepRequest request){
 //        CountFailedTestStepResponse response = testSetManager.countFailedTestStep(request);

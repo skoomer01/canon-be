@@ -5,6 +5,7 @@ import codecrusaders.repository.entity.RegressionTestEntity;
 import codecrusaders.repository.entity.TestSetEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -26,4 +27,8 @@ public interface RegrTestRepository extends JpaRepository<RegressionTestEntity, 
             nativeQuery = true
     )
     List<RegressionTestEntity> findLatestTests();
+
+
+    @Query(value = "SELECT * FROM tests WHERE testsetid = :testsetid", nativeQuery = true)
+    List<RegressionTestEntity> getTestsByTestSetId(@Param("testsetid")Long testSetId);
 }

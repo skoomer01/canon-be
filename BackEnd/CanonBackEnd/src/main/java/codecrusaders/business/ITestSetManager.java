@@ -9,4 +9,5 @@ public interface ITestSetManager {
     CreateTestSetResponse createTestSet(CreateTestSetRequest request);
     GetTestSetResponse getAllTestSets();
     CountFailedTestStepResponse countFailedTestStep(CountFailedTestStepRequest request);
+    GetTestsByTestSetIdResponse getTestsByTestSetsId(GetTestsByTestSetIdRequest request);
 }
