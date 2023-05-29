@@ -33,9 +33,9 @@ public class TestSetController {
         GetTestsByTestSetIdResponse response = testSetManager.getTestsByTestSetsId(GetTestsByTestSetIdRequest.builder().id(id).build());
         return ResponseEntity.ok(response);
     }
-//    @GetMapping
-//    public ResponseEntity<CountFailedTestStepResponse> getFailedCounterOfATestSet(@RequestBody @Valid CountFailedTestStepRequest request){
-//        CountFailedTestStepResponse response = testSetManager.countFailedTestStep(request);
-//        return ResponseEntity.ok(response);
-//    }
+    @GetMapping("/failedCounter/{id}")
+    public ResponseEntity<CountFailedTestStepResponse> getFailedCounterOfATest(@PathVariable Long id){
+        CountFailedTestStepResponse response = testSetManager.countFailedTestStep(CountFailedTestStepRequest.builder().testId(id).build());
+        return ResponseEntity.ok(response);
+    }
 }
