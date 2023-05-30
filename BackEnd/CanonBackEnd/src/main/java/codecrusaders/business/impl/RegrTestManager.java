@@ -52,6 +52,7 @@ public class RegrTestManager implements IRegressionTestManager {
 
 
 
+
     public GetLatestTestsResponse getLatestTests() {
         List<RegressionTest> latestRegressionTests = regrTestRepo.findLatestTests()
                 .stream()
