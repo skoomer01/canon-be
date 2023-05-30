@@ -8,10 +8,6 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 @Data
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class Branch {
-    private Long id;
-    private String branchName;
-    private Boolean isPublic;
+public class GetAllTestSetFromABatchResponse {
+    List<TestSet> testSetList;
 }

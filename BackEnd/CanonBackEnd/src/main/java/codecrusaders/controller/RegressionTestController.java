@@ -39,4 +39,8 @@ public class RegressionTestController {
 
 
 
+    @GetMapping("/latest")
+    public ResponseEntity<GetLatestTestsResponse> getLatestRegrTests(){
+        return ResponseEntity.ok(regrTestManager.getLatestTests());
+    }
 }

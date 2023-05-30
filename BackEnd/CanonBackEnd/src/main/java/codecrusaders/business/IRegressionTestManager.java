@@ -10,4 +10,5 @@ public interface IRegressionTestManager {
     GetRegressionTestResponse getAllRegrTests();
 
     Optional<RegressionTest> getTestByID(long id);
+    GetLatestTestsResponse getLatestTests();
 }

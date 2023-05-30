@@ -7,28 +7,32 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Data
-@Table(name = "testsets")
+@Table(name = "testbatches")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TestSetEntity {
+public class TestBatchEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "testsetid")
-    private Long id;
-    @Column(name = "testsetname")
-    private String testSetName;
     @Column(name = "testbatchid")
-    private Long testBatchId;
-    @Column(name = "testsettime")
-    private Date testSetTime;
+    private Long id;
+    @Column(name = "build_time")
+    private String buildTime;
+    @Column(name = "version")
+    private String version;
+    @Column(name = "commitShal")
+    private String commitShal;
+    @Column(name = "testbatchdate")
+    private LocalDateTime dateTime;
 
-
+    @Column(name = "branchid")
+    private Long branchId;
 
 
 }

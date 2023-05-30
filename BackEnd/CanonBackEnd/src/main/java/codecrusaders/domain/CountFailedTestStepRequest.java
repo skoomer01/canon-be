@@ -5,13 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Branch {
-    private Long id;
-    private String branchName;
-    private Boolean isPublic;
+public class CountFailedTestStepRequest {
+    private Long testId;
 }

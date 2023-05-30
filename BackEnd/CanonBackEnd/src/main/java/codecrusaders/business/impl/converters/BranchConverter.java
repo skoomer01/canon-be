@@ -11,10 +11,10 @@ import java.util.Optional;
 @AllArgsConstructor
 public class BranchConverter {
     public static Branch convert(BranchEntity branchEntity){
-        Branch branchToBeConverted = Branch.builder()
+        return Branch.builder()
+                .id(branchEntity.getId())
                 .branchName(branchEntity.getBranchName())
+                .isPublic(branchEntity.isPublic())
                 .build();
 
-        Branch returnedBranch = branchToBeConverted;
-        return returnedBranch;
     }}
