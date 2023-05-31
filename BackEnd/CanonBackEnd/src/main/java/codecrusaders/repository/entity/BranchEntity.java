@@ -20,10 +20,9 @@ public class BranchEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "branchid")
-    private Long id;
+    private Long branchid;
     @Column(name = "branchname")
     private String branchName;
     @Column(name = "ispublic")
     private boolean isPublic;
-
 }

@@ -7,7 +7,7 @@ public class RegrTestConverter {
     public static RegressionTest convert(RegressionTestEntity rtEntity) {
         return RegressionTest.builder()
                 .id(rtEntity.getId())
-//                .testSet(TestSetConverter.convert(rtEntity.getTestSetEntity()))
+                .testSetId(rtEntity.getTestSetId())
                 .build();
     }
 }

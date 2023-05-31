@@ -26,9 +26,6 @@ public class RegressionTestEntity {
     private String testName;
     @Column(name = "testdate")
     private LocalDateTime testDate;
-
-    @ManyToOne
-    @JoinColumn(name = "testsetid")
-    private TestSetEntity testSetEntity;
-
+    @Column(name = "testsetid")
+    private Long testSetId;
 }

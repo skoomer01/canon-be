@@ -12,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Branch {
     private Long id;
+    private List<TestBatch> testBatches;
     private String branchName;
-    private Boolean isPublic;
+    private User user;
 }

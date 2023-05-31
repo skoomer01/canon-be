@@ -1,7 +1,9 @@
 package codecrusaders.controller;
 
 import codecrusaders.business.impl.TestSetManager;
-import codecrusaders.domain.*;
+import codecrusaders.domain.CreateTestSetRequest;
+import codecrusaders.domain.CreateTestSetResponse;
+import codecrusaders.domain.GetTestSetResponse;
 import lombok.AllArgsConstructor;
 
 import org.springframework.http.HttpStatus;
@@ -27,10 +29,4 @@ public class TestSetController {
     public ResponseEntity<GetTestSetResponse> getTestSets(){
         return ResponseEntity.ok(testSetManager.getAllTestSets());
     }
-
-//    @GetMapping
-//    public ResponseEntity<CountFailedTestStepResponse> getFailedCounterOfATestSet(@RequestBody @Valid CountFailedTestStepRequest request){
-//        CountFailedTestStepResponse response = testSetManager.countFailedTestStep(request);
-//        return ResponseEntity.ok(response);
-//    }
 }
