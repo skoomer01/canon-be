@@ -20,7 +20,6 @@ public interface RegrTestRepository extends JpaRepository<RegressionTestEntity, 
 
     RegressionTestEntity findById(long id);
 
-//    @Query("select rt from RegressionTestEntity rt order by rt.id DESC")
     @Query(
             value = "SELECT TOP 6 * FROM tests ORDER BY testid DESC",
             nativeQuery = true

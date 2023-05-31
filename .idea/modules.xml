@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/CanonBackEnd.main.iml" filepath="$PROJECT_DIR$/.idea/modules/CanonBackEnd.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/codecrusaders.iml" filepath="$PROJECT_DIR$/.idea/codecrusaders.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/codecrusaders.example.CanonBackEnd.main.iml" filepath="$PROJECT_DIR$/.idea/modules/codecrusaders.example.CanonBackEnd.main.iml" />
     </modules>
   </component>
 </project>

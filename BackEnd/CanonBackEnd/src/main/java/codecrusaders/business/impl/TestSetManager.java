@@ -1,11 +1,9 @@
 package codecrusaders.business.impl;
 
 import codecrusaders.business.ITestSetManager;
+import codecrusaders.business.impl.converters.RegrTestConverter;
 import codecrusaders.business.impl.converters.TestSetConverter;
-import codecrusaders.domain.CreateTestSetRequest;
-import codecrusaders.domain.CreateTestSetResponse;
-import codecrusaders.domain.GetTestSetResponse;
-import codecrusaders.domain.TestSet;
+import codecrusaders.domain.*;
 import codecrusaders.repository.RegrTestRepository;
 import codecrusaders.repository.TestSetRepository;
 import codecrusaders.repository.entity.TestSetEntity;
@@ -41,6 +39,15 @@ public class TestSetManager implements ITestSetManager {
         return GetTestSetResponse.builder()
                 .testSets(testSets)
                 .build();
+    }
+
+    @Override
+    public GetLatestTestSetsResponse getLatestTestSets() {
+        List<TestSet> latestTestSets = testSetRepo.findLatestTestSets()
+                .stream()
+                .map(TestSetConverter::convert)
+                .toList();
+        return GetLatestTestSetsResponse.builder().latestTestSets(latestTestSets).build();
     }
 
 }

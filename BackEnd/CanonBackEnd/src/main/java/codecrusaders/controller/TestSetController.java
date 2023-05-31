@@ -1,9 +1,7 @@
 package codecrusaders.controller;
 
 import codecrusaders.business.impl.TestSetManager;
-import codecrusaders.domain.CreateTestSetRequest;
-import codecrusaders.domain.CreateTestSetResponse;
-import codecrusaders.domain.GetTestSetResponse;
+import codecrusaders.domain.*;
 import lombok.AllArgsConstructor;
 
 import org.springframework.http.HttpStatus;
@@ -24,9 +22,13 @@ public class TestSetController {
         CreateTestSetResponse response = testSetManager.createTestSet(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
-    @CrossOrigin(origins = "http://localhost:8080/")
+
     @GetMapping
     public ResponseEntity<GetTestSetResponse> getTestSets(){
         return ResponseEntity.ok(testSetManager.getAllTestSets());
+    }
+    @GetMapping("/latest")
+    public ResponseEntity<GetLatestTestSetsResponse> getLatestRegrTests(){
+        return ResponseEntity.ok(testSetManager.getLatestTestSets());
     }
 }
