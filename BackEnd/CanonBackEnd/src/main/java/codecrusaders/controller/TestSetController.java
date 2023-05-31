@@ -35,7 +35,7 @@ public class TestSetController {
     }
     @GetMapping("/failedCounter/{id}")
     public ResponseEntity<CountFailedTestStepResponse> getFailedCounterOfATest(@PathVariable Long id){
-        CountFailedTestStepResponse response = testSetManager.countFailedTestStep(CountFailedTestStepRequest.builder().testId(id).build());
+        CountFailedTestStepResponse response = testSetManager.countFailedTestStep(CountFailedTestStepRequest.builder().id(id).build());
         return ResponseEntity.ok(response);
     }
 }

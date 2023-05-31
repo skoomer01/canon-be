@@ -51,6 +51,10 @@ public class RegrTestManager implements IRegressionTestManager {
     }
 
 
+    @Override
+    public CountFailedTestStepResponse countFailedTestStep(CountFailedTestStepRequest request) {
+        return CountFailedTestStepResponse.builder().failedCounter(regrTestRepo.countFailedTestStepsByTestID(request.getId())).build();
+    }
 
 
     public GetLatestTestsResponse getLatestTests() {

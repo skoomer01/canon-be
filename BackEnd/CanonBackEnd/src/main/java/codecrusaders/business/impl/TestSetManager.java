@@ -44,7 +44,7 @@ public class TestSetManager implements ITestSetManager {
 
     @Override
     public CountFailedTestStepResponse countFailedTestStep(CountFailedTestStepRequest request) {
-        return CountFailedTestStepResponse.builder().failedCounter(testSetRepo.countFailedTestStepsByTestId(request.getTestId())).build();
+        return CountFailedTestStepResponse.builder().failedCounter(testSetRepo.countFailedTestStepsByTestId(request.getId())).build();
     }
 
     @Override
