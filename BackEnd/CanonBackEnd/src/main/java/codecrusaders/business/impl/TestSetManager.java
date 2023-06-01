@@ -6,6 +6,7 @@ import codecrusaders.business.impl.converters.TestSetConverter;
 import codecrusaders.domain.*;
 import codecrusaders.repository.RegrTestRepository;
 import codecrusaders.repository.TestSetRepository;
+import codecrusaders.repository.entity.RegressionTestEntity;
 import codecrusaders.repository.entity.TestSetEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -48,6 +49,17 @@ public class TestSetManager implements ITestSetManager {
                 .map(TestSetConverter::convert)
                 .toList();
         return GetLatestTestSetsResponse.builder().latestTestSets(latestTestSets).build();
+    }
+
+    @Override
+    public CountFailedTestStepResponse countFailedTestStep(CountFailedTestStepRequest request) {
+        return CountFailedTestStepResponse.builder().failedCounter(testSetRepo.countFailedTestStepsByTestId(request.getTestId())).build();
+    }
+
+    @Override
+    public GetTestsByTestSetIdResponse getTestsByTestSetsId(GetTestsByTestSetIdRequest request) {
+        List<RegressionTestEntity> regressionTestEntities = regrTestRepo.getTestsByTestSetId(request.getId());
+        return GetTestsByTestSetIdResponse.builder().regressionTests(regressionTestEntities.stream().map(RegrTestConverter::convert).toList()).build();
     }
 
 }

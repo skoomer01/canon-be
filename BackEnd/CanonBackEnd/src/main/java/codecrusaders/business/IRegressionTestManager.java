@@ -5,5 +5,5 @@ import codecrusaders.domain.*;
 public interface IRegressionTestManager {
     CreateRegrTestResponse createRegressionTest(CreateRegrTestRequest request);
     GetRegressionTestResponse getAllRegrTests();
-    GetLatestTestsResponse getLatestTests();
+    GetLatestTestsResponse getLatestTests(GetTestsByTestSetIdRequest request);
 }

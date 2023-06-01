@@ -27,8 +27,9 @@ public class RegressionTestController {
     public ResponseEntity<GetRegressionTestResponse> getRegrTests(){
         return ResponseEntity.ok(regrTestManager.getAllRegrTests());
     }
-    @GetMapping("/latest")
-    public ResponseEntity<GetLatestTestsResponse> getLatestRegrTests(){
-        return ResponseEntity.ok(regrTestManager.getLatestTests());
+    @GetMapping("/latest/{id}")
+    public ResponseEntity<GetLatestTestsResponse> getLatestRegrTestsByTestSetId(@PathVariable Long id){
+        GetTestsByTestSetIdRequest request = GetTestsByTestSetIdRequest.builder().id(id).build();
+        return ResponseEntity.ok(regrTestManager.getLatestTests(request));
     }
 }
