@@ -17,7 +17,6 @@ import java.util.Optional;
 public class RegrTestManager implements IRegressionTestManager {
 
     private final RegrTestRepository regrTestRepo;
-    private final TestSetRepository testSetRepo;
     @Override
     public CreateRegrTestResponse createRegressionTest(CreateRegrTestRequest request){
         Optional<RegressionTestEntity> savedRegrTest = saveNewRegrTest(request);
@@ -51,10 +50,7 @@ public class RegrTestManager implements IRegressionTestManager {
     }
 
 
-    @Override
-    public CountFailedTestStepResponse countFailedTestStep(CountFailedTestStepRequest request) {
-        return CountFailedTestStepResponse.builder().failedCounter(regrTestRepo.countFailedTestStepsByTestID(request.getId())).build();
-    }
+
 
 
     public GetLatestTestsResponse getLatestTests() {

@@ -44,7 +44,10 @@ public class SubTestManager implements ISubTestManager {
     }
 
 
-
+    @Override
+    public CountFailedTestStepResponse countFailedTestStep(CountFailedTestStepRequest request) {
+        return CountFailedTestStepResponse.builder().failedCounter(subTestRepository.countFailedTestStepsBySubTestID(request.getId())).build();
+    }
 
     @Override
     public GetSubTestsResponse getSubTestsByTestID(Long id) {

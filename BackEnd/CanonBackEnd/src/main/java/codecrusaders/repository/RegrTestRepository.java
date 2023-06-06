@@ -32,9 +32,6 @@ public interface RegrTestRepository extends JpaRepository<RegressionTestEntity, 
     List<RegressionTestEntity> getTestsByTestSetId(@Param("testsetid")Long testSetId);
 
 
-    @Query(value = "SELECT COUNT(*) FROM teststeps ts" +
-            "                   JOIN subtests st ON ts.subtestid = st.subtestid" +
-            "                   WHERE st.subtestid = :subtestid AND ts.testresult = 0", nativeQuery = true)
-    int countFailedTestStepsByTestID(@Param("subtestid") Long testId);
+
 
 }

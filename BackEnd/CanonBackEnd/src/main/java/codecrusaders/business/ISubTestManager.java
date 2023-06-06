@@ -7,6 +7,7 @@ public interface ISubTestManager {
     GetSubTestsResponse getSubTests();
      GetSubTestsResponse findById(Long id);
 
+    CountFailedTestStepResponse countFailedTestStep(CountFailedTestStepRequest request);
     GetSubTestsResponse getSubTestsByTestID(Long id);
 
 }

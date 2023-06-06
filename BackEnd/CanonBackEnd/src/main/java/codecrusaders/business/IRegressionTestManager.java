@@ -12,5 +12,5 @@ public interface IRegressionTestManager {
     Optional<RegressionTest> getTestByID(long id);
     GetLatestTestsResponse getLatestTests();
 
-    CountFailedTestStepResponse countFailedTestStep(CountFailedTestStepRequest request);
+
 }

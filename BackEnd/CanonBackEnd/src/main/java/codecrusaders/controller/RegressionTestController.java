@@ -37,11 +37,7 @@ public class RegressionTestController {
         return ResponseEntity.ok().body(testOptional.get());
     }
 
-    @GetMapping("/failedCounter/{id}")
-    public ResponseEntity<CountFailedTestStepResponse> getFailedCounterOfATest(@PathVariable Long id) {
-        CountFailedTestStepResponse response = regrTestManager.countFailedTestStep(CountFailedTestStepRequest.builder().id(id).build());
-        return ResponseEntity.ok(response);
-    }
+
 
 
     @GetMapping("/latest")
