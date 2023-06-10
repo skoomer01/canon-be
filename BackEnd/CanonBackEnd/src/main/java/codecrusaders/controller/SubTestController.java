@@ -37,6 +37,12 @@ public class SubTestController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/totalCounter/{id}")
+    public ResponseEntity<CountFailedTestStepResponse> getTotalCounterOfATest(@PathVariable Long id) {
+        CountFailedTestStepResponse response = subTestManager.countTotalTestStep(CountFailedTestStepRequest.builder().id(id).build());
+        return ResponseEntity.ok(response);
+    }
+
     @GetMapping("/TestID/{testid}")
     public ResponseEntity<GetSubTestsResponse> getSubTestsByTestID(@PathVariable Long testid) {
         GetSubTestsResponse response = subTestManager.getSubTestsByTestID(testid);

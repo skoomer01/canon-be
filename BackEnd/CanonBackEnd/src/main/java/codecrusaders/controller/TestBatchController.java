@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/TestBatches")
@@ -23,6 +24,15 @@ public class TestBatchController {
     public ResponseEntity<GetAllTestSetFromABatchResponse> getAllTestSetsByBatchId(@PathVariable Long id){
         GetAllTestSetFromABatchResponse response = testBatchManager.getAllTestSetsWithBatchId(GetAllTestSetFromABatchRequest.builder().testBatchId(id).build());
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/individual/{testbatchid}")
+    public ResponseEntity<TestBatch> GetTestByIDResponse(@PathVariable(value = "testbatchid") final long id) {
+        final Optional<TestBatch> testsetOptional = testBatchManager.findTestBatch(id);
+        if (testsetOptional.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(testsetOptional.get());
     }
 
 
