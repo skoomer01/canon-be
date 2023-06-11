@@ -23,8 +23,13 @@ public class TestSetEntity {
     private Long id;
     @Column(name = "testsetname")
     private String testSetName;
-    @Column(name = "testbatchid")
-    private Long testBatchId;
+    @ManyToOne
+    @JoinColumn(name = "testbatchid")
+    private TestBatchEntity testBatchEntity;
     @Column(name = "testsettime")
     private Date testSetTime;
+
+
+
+
 }

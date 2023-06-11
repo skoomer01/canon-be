@@ -42,4 +42,39 @@ public class SubTestManager implements ISubTestManager {
                 .subTests(subTests)
                 .build();
     }
+
+
+    @Override
+    public CountFailedTestStepResponse countFailedTestStep(CountFailedTestStepRequest request) {
+        return CountFailedTestStepResponse.builder().failedCounter(subTestRepository.countFailedTestStepsBySubTestID(request.getId())).build();
+    }
+
+    @Override
+    public CountFailedTestStepResponse countTotalTestStep(CountFailedTestStepRequest request) {
+        return CountFailedTestStepResponse.builder().failedCounter(subTestRepository.countTotalTestStepsBySubTestID(request.getId())).build();
+    }
+
+    @Override
+    public GetSubTestsResponse getSubTestsByTestID(Long id) {
+        List<SubTest> subTests = subTestRepository.findByTestID(id)
+                .stream()
+                .map(SubTestConverter::convert)
+                .toList();
+
+        return GetSubTestsResponse.builder()
+                .subTests(subTests)
+                .build();
+    }
+
+    @Override
+    public GetSubTestsResponse findById(Long id) {
+        List<SubTest> subTests = subTestRepository.findById(id)
+                .stream()
+                .map(SubTestConverter::convert)
+                .toList();
+
+        return GetSubTestsResponse.builder()
+                .subTests(subTests)
+                .build();
+    }
 }

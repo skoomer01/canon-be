@@ -19,8 +19,8 @@ public interface RegrTestRepository extends JpaRepository<RegressionTestEntity, 
 
     List<RegressionTestEntity> findAll();
 
-    RegressionTestEntity findById(long id);
 
+//    @Query("select rt from RegressionTestEntity rt order by rt.id DESC")
     @Query(
             value = "SELECT TOP 6 * FROM tests ORDER BY testid DESC",
             nativeQuery = true
@@ -30,6 +30,12 @@ public interface RegrTestRepository extends JpaRepository<RegressionTestEntity, 
     @Query(value = "SELECT * FROM tests WHERE testsetid = :testsetid ORDER BY testid DESC", nativeQuery = true)
     List<RegressionTestEntity> getLatestTestsByTestSet(@Param("testsetid")Long testSetId);
 
+
     @Query(value = "SELECT * FROM tests WHERE testsetid = :testsetid", nativeQuery = true)
     List<RegressionTestEntity> getTestsByTestSetId(@Param("testsetid")Long testSetId);
+
+
+
+
+
 }

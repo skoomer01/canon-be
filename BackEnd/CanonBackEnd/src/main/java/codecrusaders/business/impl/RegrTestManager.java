@@ -25,7 +25,7 @@ public class RegrTestManager implements IRegressionTestManager {
     }
     private Optional<RegressionTestEntity> saveNewRegrTest(CreateRegrTestRequest request){
         RegressionTestEntity newRegrTest = RegressionTestEntity.builder()
-                .testSetId(request.getTestSetId())
+//                .testSetId(request.getTestSetId())
                 //.testResult(request.isTestResult())
                 //.duration(request.getDuration())
                 .build();
@@ -46,9 +46,19 @@ public class RegrTestManager implements IRegressionTestManager {
     @Override
     public GetLatestTestsResponse getLatestTests(GetTestsByTestSetIdRequest request) {
         List<RegressionTest> latestRegressionTests = regrTestRepo.getLatestTestsByTestSet(request.getId())
-                .stream()
-                .map(RegrTestConverter::convert)
-                .toList();
-        return GetLatestTestsResponse.builder().latestTests(latestRegressionTests).build();
+    public Optional<RegressionTest> getTestByID(long testid) {
+
+
+        return regrTestRepo.findById(testid).map(RegrTestConverter::convert);
     }
-}
+
+        @Override
+        public Optional<RegressionTest> getTestByID(long testid) {
+
+
+            return regrTestRepo.findById(testid).map(RegrTestConverter::convert);
+        }
+
+
+
+

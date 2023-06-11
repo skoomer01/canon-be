@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/SubTests")
@@ -23,6 +24,34 @@ public class SubTestController {
     public ResponseEntity<CreateSubTestResponse> createSubTest(@RequestBody @Valid CreateSubTestRequest request){
         CreateSubTestResponse response = subTestManager.registerSubTest(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
-
     }
+    @GetMapping("/{subtestid}")
+    public ResponseEntity<GetSubTestsResponse> findbyID(@PathVariable Long subtestid) {
+        GetSubTestsResponse response = subTestManager.findById(subtestid);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/failedCounter/{id}")
+    public ResponseEntity<CountFailedTestStepResponse> getFailedCounterOfATest(@PathVariable Long id) {
+        CountFailedTestStepResponse response = subTestManager.countFailedTestStep(CountFailedTestStepRequest.builder().id(id).build());
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/totalCounter/{id}")
+    public ResponseEntity<CountFailedTestStepResponse> getTotalCounterOfATest(@PathVariable Long id) {
+        CountFailedTestStepResponse response = subTestManager.countTotalTestStep(CountFailedTestStepRequest.builder().id(id).build());
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/TestID/{testid}")
+    public ResponseEntity<GetSubTestsResponse> getSubTestsByTestID(@PathVariable Long testid) {
+        GetSubTestsResponse response = subTestManager.getSubTestsByTestID(testid);
+        return ResponseEntity.ok(response);
+    }
+
+
+
+
+
+
 }

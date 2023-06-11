@@ -1,8 +1,7 @@
 package codecrusaders.repository;
 
-import codecrusaders.domain.*;
+import codecrusaders.domain.TestSet;
 import codecrusaders.repository.entity.ErrorEntity;
-import codecrusaders.repository.entity.RegressionTestEntity;
 import codecrusaders.repository.entity.TestSetEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -21,13 +20,21 @@ public interface TestSetRepository extends JpaRepository<TestSetEntity, Long> {
 
     List<TestSetEntity> findAll();
 
-    TestSetEntity findById(long id);
 
     @Query(value = "SELECT COUNT(*) FROM teststeps ts" +
             "                   JOIN subtests st ON ts.subtestid = st.subtestid" +
             "                   JOIN tests t ON st.testid = t.testid" +
             "                   WHERE t.testid = :testId AND ts.testresult = 0", nativeQuery = true)
     int countFailedTestStepsByTestId(@Param("testId") Long testId);
+
+
+    @Query(value = "SELECT COUNT(*) FROM teststeps ts" +
+            "                   JOIN subtests st ON ts.subtestid = st.subtestid" +
+            "                   JOIN tests t ON st.testid = t.testid" +
+            "                   WHERE t.testid = :testId", nativeQuery = true)
+    int countTotalTestStepsByTestId(@Param("testId") Long testId);
+
+
 
     @Query(value = "SELECT * FROM testsets WHERE testbatchid = :testbatchid", nativeQuery = true)
     List<TestSetEntity> getAllTestSetsByBatchId(@Param("testbatchid")Long testBatchId);
@@ -37,5 +44,7 @@ public interface TestSetRepository extends JpaRepository<TestSetEntity, Long> {
             nativeQuery = true
     )
     List<TestSetEntity> findLatestTestSets();
+
+
 
 }

@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -55,4 +56,21 @@ public class TestStepManager implements ITestStepManager {
                 .build();
     }
 
+    @Override
+    public GetTestStepsResponse getTestStepBySubTestId(Long subTestId){
+        List<TestStep> testSteps = testStepRepository.findBySubTestID(subTestId)
+                .stream()
+                .map(TestStepConverter::convert)
+                .toList();
+
+        return GetTestStepsResponse.builder()
+                .testSteps(testSteps)
+                .build();
+    }
+
+    @Override
+    public Optional<TestStep> getTestStepById(Long id) {
+        Optional<TestStepEntity> testStepEntityOptional = testStepRepository.findById(id);
+        return testStepEntityOptional.map(TestStepConverter::convert);
+    }
 }

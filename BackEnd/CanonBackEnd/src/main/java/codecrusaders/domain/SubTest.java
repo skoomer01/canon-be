@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class SubTest {
     private Long id;
-    private boolean testResult;
+    private String subtestName;
     private Long testId;
 
 }

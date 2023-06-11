@@ -32,4 +32,12 @@ public class RegressionTestController {
         GetTestsByTestSetIdRequest request = GetTestsByTestSetIdRequest.builder().id(id).build();
         return ResponseEntity.ok(regrTestManager.getLatestTests(request));
     }
+    @GetMapping("{id}")
+    public ResponseEntity<RegressionTest> GetTestByIDResponse(@PathVariable(value = "id") final long id) {
+        final Optional<RegressionTest> testOptional = regrTestManager.getTestByID(id);
+        if (testOptional.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(testOptional.get());
+    }
 }
