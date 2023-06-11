@@ -12,6 +12,6 @@ public interface ITestSetManager {
     CountFailedTestStepResponse countFailedTestStep(CountFailedTestStepRequest request);
     GetTestsByTestSetIdResponse getTestsByTestSetsId(GetTestsByTestSetIdRequest request);
 
-    public Optional<TestSet> findTestSet(long testsetid);
+    Optional<TestSet> findTestSet(long testsetid);
     CountFailedTestStepResponse countTotalTestStep(CountFailedTestStepRequest request);
 }
