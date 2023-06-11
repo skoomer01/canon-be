@@ -18,12 +18,14 @@ public class RegrTestManager implements IRegressionTestManager {
 
     private final RegrTestRepository regrTestRepo;
     private final TestSetRepository testSetRepo;
+
     @Override
-    public CreateRegrTestResponse createRegressionTest(CreateRegrTestRequest request){
+    public CreateRegrTestResponse createRegressionTest(CreateRegrTestRequest request) {
         Optional<RegressionTestEntity> savedRegrTest = saveNewRegrTest(request);
         return savedRegrTest.map(testSetEntity -> CreateRegrTestResponse.builder().id(testSetEntity.getId()).build()).orElse(null);
     }
-    private Optional<RegressionTestEntity> saveNewRegrTest(CreateRegrTestRequest request){
+
+    private Optional<RegressionTestEntity> saveNewRegrTest(CreateRegrTestRequest request) {
         RegressionTestEntity newRegrTest = RegressionTestEntity.builder()
 //                .testSetId(request.getTestSetId())
                 //.testResult(request.isTestResult())
@@ -33,7 +35,7 @@ public class RegrTestManager implements IRegressionTestManager {
     }
 
     @Override
-    public GetRegressionTestResponse getAllRegrTests(){
+    public GetRegressionTestResponse getAllRegrTests() {
         List<RegressionTest> regressionTests = regrTestRepo.findAll()
                 .stream()
                 .map(RegrTestConverter::convert)
@@ -43,21 +45,37 @@ public class RegrTestManager implements IRegressionTestManager {
                 .build();
     }
 
+
+
+
+
     @Override
     public GetLatestTestsResponse getLatestTests(GetTestsByTestSetIdRequest request) {
         List<RegressionTest> latestRegressionTests = regrTestRepo.getLatestTestsByTestSet(request.getId())
+                .stream()
+                .map(RegrTestConverter::convert)
+                .toList();
+        return GetLatestTestsResponse.builder().latestTests(latestRegressionTests).build();
+    }
+
+
+    @Override
     public Optional<RegressionTest> getTestByID(long testid) {
 
 
         return regrTestRepo.findById(testid).map(RegrTestConverter::convert);
     }
 
-        @Override
-        public Optional<RegressionTest> getTestByID(long testid) {
 
+    public GetLatestTestsResponse getLatestTests() {
+        List<RegressionTest> latestRegressionTests = regrTestRepo.findLatestTests()
+                .stream()
+                .map(RegrTestConverter::convert)
+                .toList();
+        return GetLatestTestsResponse.builder().latestTests(latestRegressionTests).build();
+    }
 
-            return regrTestRepo.findById(testid).map(RegrTestConverter::convert);
-        }
+}
 
 
 

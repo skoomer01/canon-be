@@ -34,7 +34,7 @@ public class BranchManager implements IBranchManager {
         UserConverter userConverter = new UserConverter();
         BranchEntity branchEntity = saveBranch(request);
         return RegisterBranchResponse.builder()
-                .id(branchEntity.getId())
+                .id(branchEntity.getBranchid())
                 //.user(UserConverter.convert(branchEntity.getUser()))
                 .build();
     }

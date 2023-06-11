@@ -1,6 +1,7 @@
 package codecrusaders.business.impl;
 
 import codecrusaders.business.ITestSetManager;
+import codecrusaders.business.impl.converters.RegrTestConverter;
 import codecrusaders.business.impl.converters.TestSetConverter;
 import codecrusaders.domain.*;
 import codecrusaders.repository.RegrTestRepository;
