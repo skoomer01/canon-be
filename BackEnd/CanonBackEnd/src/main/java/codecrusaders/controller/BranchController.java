@@ -1,6 +1,7 @@
 package codecrusaders.controller;
 
 import codecrusaders.business.IBranchManager;
+import codecrusaders.configuration.security.isauthenticated.IsAuthenticated;
 import codecrusaders.domain.GetAllTestBatchesFromABranchRequest;
 import codecrusaders.domain.GetAllTestBatchesFromABranchResponse;
 import codecrusaders.domain.Http.*;
@@ -27,7 +28,14 @@ public class BranchController {
     }
     @GetMapping
     public ResponseEntity<GetAllBranchesResponse> getAllBranches(){
-        GetAllBranchesResponse response = branchManager.getAllBranches();
+        GetAllBranchesResponse response = branchManager.getAllPublicBranches();
+        return ResponseEntity.ok(response);
+    }
+
+    @IsAuthenticated
+    @GetMapping("/private")
+    public ResponseEntity<GetAllBranchesResponse> getAllPrivateBranches(){
+        GetAllBranchesResponse response = branchManager.getAllPrivateBranches();
         return ResponseEntity.ok(response);
     }
     @GetMapping("{id}")

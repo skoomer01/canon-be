@@ -13,5 +13,6 @@ public class RegisterBranchRequest {
     private String branchName;
 
     @NotNull
+    private int ispublic;
     private Long userId;
 }

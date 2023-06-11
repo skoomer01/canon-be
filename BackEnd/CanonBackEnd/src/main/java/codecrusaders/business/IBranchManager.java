@@ -9,7 +9,8 @@ import codecrusaders.domain.Http.RegisterBranchResponse;
 public interface IBranchManager {
     //...
     public RegisterBranchResponse registerBranch(RegisterBranchRequest request);
-    public GetAllBranchesResponse getAllBranches();
+    public GetAllBranchesResponse getAllPublicBranches();
+    public GetAllBranchesResponse getAllPrivateBranches();
     public GetAllTestBatchesFromABranchResponse getAllTestBatchesFromABranch(GetAllTestBatchesFromABranchRequest request);
 
     }

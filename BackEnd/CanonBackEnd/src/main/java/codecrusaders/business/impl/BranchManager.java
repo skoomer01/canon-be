@@ -5,11 +5,8 @@ import codecrusaders.business.exception.BranchAlreadyExistsException;
 import codecrusaders.business.impl.converters.BranchConverter;
 import codecrusaders.business.impl.converters.TestBatchConverter;
 import codecrusaders.business.impl.converters.UserConverter;
-import codecrusaders.domain.Branch;
-import codecrusaders.domain.GetAllTestBatchesFromABranchRequest;
-import codecrusaders.domain.GetAllTestBatchesFromABranchResponse;
+import codecrusaders.domain.*;
 import codecrusaders.domain.Http.*;
-import codecrusaders.domain.TestBatch;
 import codecrusaders.repository.BranchRepository;
 import codecrusaders.repository.TestBatchRepository;
 import codecrusaders.repository.entity.BranchEntity;
@@ -17,6 +14,7 @@ import codecrusaders.repository.entity.TestBatchEntity;
 import codecrusaders.repository.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import codecrusaders.domain.AccessToken;
 
 import java.util.List;
 
@@ -25,6 +23,7 @@ import java.util.List;
 public class BranchManager implements IBranchManager {
     private final BranchRepository branchRepository;
     private final TestBatchRepository testBatchRepository;
+    private AccessToken accessToken;
 
     @Override
     public RegisterBranchResponse registerBranch(RegisterBranchRequest request) {
@@ -49,9 +48,22 @@ public class BranchManager implements IBranchManager {
 
 
     }
+    @Override
+    public GetAllBranchesResponse getAllPublicBranches(){
+        List<BranchEntity> results = branchRepository.findAllPublic();
 
-    public GetAllBranchesResponse getAllBranches(){
-        List<BranchEntity> results = branchRepository.findAll();
+        List<Branch> branches = results
+                .stream()
+                .map(BranchConverter::convert)
+                .toList();
+
+        return GetAllBranchesResponse.builder()
+                .branchList(branches)
+                .build();
+    }
+    @Override
+    public GetAllBranchesResponse getAllPrivateBranches(){
+        List<BranchEntity> results = branchRepository.findAllPrivate(accessToken.getUserId());
 
         List<Branch> branches = results
                 .stream()
