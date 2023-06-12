@@ -54,6 +54,15 @@ public class TestSetManager implements ITestSetManager {
     }
 
     @Override
+    public GetLatestTestSetsResponse getLatestTestSets() {
+        List<TestSet> latestTestSets = testSetRepo.findLatestTestSets()
+                .stream()
+                .map(TestSetConverter::convert)
+                .toList();
+        return GetLatestTestSetsResponse.builder().latestTestSets(latestTestSets).build();
+    }
+
+    @Override
     public Optional<TestSet> findTestSet(long testsetid) {
 
 

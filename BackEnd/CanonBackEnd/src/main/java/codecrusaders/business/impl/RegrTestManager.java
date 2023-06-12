@@ -53,8 +53,8 @@ public class RegrTestManager implements IRegressionTestManager {
 
 
 
-    public GetLatestTestsResponse getLatestTests() {
-        List<RegressionTest> latestRegressionTests = regrTestRepo.findLatestTests()
+    public GetLatestTestsResponse getLatestTests(GetTestsByTestSetIdRequest request) {
+        List<RegressionTest> latestRegressionTests = regrTestRepo.getLatestTestsByTestSet(request.getId())
                 .stream()
                 .map(RegrTestConverter::convert)
                 .toList();

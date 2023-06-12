@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5a76b54-d6f1-462f-8dc2-53d0500c83f8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/IRegressionTestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/IRegressionTestManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/ITestSetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/ITestSetManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/impl/RegrTestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/impl/RegrTestManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/impl/TestSetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/impl/TestSetManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/controller/RegressionTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/controller/RegressionTestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/controller/TestSetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/controller/TestSetController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/repository/RegrTestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/repository/RegrTestRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/repository/TestSetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/repository/TestSetRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +42,12 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="CanonBackEnd" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CanonBackEnd" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -77,6 +86,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2PW24kVwwUojk9x5M6qzy7PjGqY" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -103,7 +115,34 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.CanonBackEnd [compileJava]">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="codecrusaders.domain" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.CanonBackEnd [bootRun]">
+    <configuration name="CanonBackEnd [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/BackEnd/CanonBackEnd" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
+      <method v="2" />
+    </configuration>
     <configuration name="CanonBackEnd [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -179,6 +218,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CanonBackEnd [bootRun]" />
         <item itemvalue="Gradle.CanonBackEnd [compileJava]" />
         <item itemvalue="Gradle.CanonBackEnd [build]" />
         <item itemvalue="Gradle.CanonBackEnd [clean]" />
@@ -197,6 +237,8 @@
       <workItem from="1683630529301" duration="2000" />
       <workItem from="1684343621146" duration="605000" />
       <workItem from="1684344228046" duration="3227000" />
+      <workItem from="1686571187763" duration="4000" />
+      <workItem from="1686571217592" duration="13093000" />
     </task>
     <servers />
   </component>
@@ -208,7 +250,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

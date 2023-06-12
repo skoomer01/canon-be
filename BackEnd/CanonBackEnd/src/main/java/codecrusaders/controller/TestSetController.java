@@ -58,4 +58,9 @@ public class TestSetController {
         CountFailedTestStepResponse response = testSetManager.countTotalTestStep(CountFailedTestStepRequest.builder().id(id).build());
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/latest")
+    public ResponseEntity<GetLatestTestSetsResponse> getLatestRegrTests(){
+        return ResponseEntity.ok(testSetManager.getLatestTestSets());
+    }
 }

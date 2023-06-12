@@ -14,4 +14,5 @@ public interface ITestSetManager {
 
     Optional<TestSet> findTestSet(long testsetid);
     CountFailedTestStepResponse countTotalTestStep(CountFailedTestStepRequest request);
+    GetLatestTestSetsResponse getLatestTestSets();
 }

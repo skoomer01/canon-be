@@ -31,8 +31,6 @@ public interface RegrTestRepository extends JpaRepository<RegressionTestEntity, 
     @Query(value = "SELECT * FROM tests WHERE testsetid = :testsetid", nativeQuery = true)
     List<RegressionTestEntity> getTestsByTestSetId(@Param("testsetid")Long testSetId);
 
-
-
-
-
+    @Query(value = "SELECT * FROM tests WHERE testsetid = :testsetid ORDER BY testid DESC", nativeQuery = true)
+    List<RegressionTestEntity> getLatestTestsByTestSet(@Param("testsetid")Long testSetId);
 }
