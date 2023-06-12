@@ -25,11 +25,17 @@ public class SubTestController {
         CreateSubTestResponse response = subTestManager.registerSubTest(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
-    @GetMapping("/{subtestid}")
-    public ResponseEntity<GetSubTestsResponse> findbyID(@PathVariable Long subtestid) {
-        GetSubTestsResponse response = subTestManager.findById(subtestid);
-        return ResponseEntity.ok(response);
+
+    @GetMapping("{subtestid}")
+    public ResponseEntity<SubTest> GetTestByIDResponse(@PathVariable(value = "subtestid") final long id) {
+        final Optional<SubTest> testsetOptional = subTestManager.findById(id);
+        if (testsetOptional.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(testsetOptional.get());
     }
+
+
 
     @GetMapping("/failedCounter/{id}")
     public ResponseEntity<CountFailedTestStepResponse> getFailedCounterOfATest(@PathVariable Long id) {
