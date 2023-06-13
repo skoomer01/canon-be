@@ -1,6 +1,7 @@
 package codecrusaders.controller;
 
 import codecrusaders.business.IBranchManager;
+import codecrusaders.domain.Branch;
 import codecrusaders.domain.GetAllTestBatchesFromABranchRequest;
 import codecrusaders.domain.GetAllTestBatchesFromABranchResponse;
 import codecrusaders.domain.Http.*;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/Branches")
@@ -34,5 +36,14 @@ public class BranchController {
     public ResponseEntity<GetAllTestBatchesFromABranchResponse> getAllTestBatchesByBranchId(@PathVariable Long id){
         GetAllTestBatchesFromABranchResponse response = branchManager.getAllTestBatchesFromABranch(GetAllTestBatchesFromABranchRequest.builder().branchId(id).build());
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/individual/{branchid}")
+    public ResponseEntity<Branch> GetBranchByIDResponse(@PathVariable(value = "branchid") final long id) {
+        final Optional<Branch> branchOptional = branchManager.findById(id);
+        if (branchOptional.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(branchOptional.get());
     }
 }
