@@ -26,7 +26,10 @@ public class SubTestController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @GetMapping("{subtestid}")
+
+
+
+    @GetMapping("/individual/{subtestid}")
     public ResponseEntity<SubTest> GetTestByIDResponse(@PathVariable(value = "subtestid") final long id) {
         final Optional<SubTest> testsetOptional = subTestManager.findById(id);
         if (testsetOptional.isEmpty()) {
