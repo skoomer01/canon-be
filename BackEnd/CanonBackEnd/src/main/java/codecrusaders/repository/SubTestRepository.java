@@ -22,4 +22,10 @@ public interface SubTestRepository extends JpaRepository<SubTestEntity, Long> {
             "                   WHERE st.subtestid = :subtestid AND ts.testresult = 0", nativeQuery = true)
     int countFailedTestStepsBySubTestID(@Param("subtestid") Long subTestId);
 
+    @Query(value = "SELECT COUNT(*) FROM teststeps ts" +
+            "                   JOIN subtests st ON ts.subtestid = st.subtestid" +
+            "                   WHERE st.subtestid = :subtestid", nativeQuery = true)
+    int countTotalTestStepsBySubTestID(@Param("subtestid") Long subTestId);
+
+
 }

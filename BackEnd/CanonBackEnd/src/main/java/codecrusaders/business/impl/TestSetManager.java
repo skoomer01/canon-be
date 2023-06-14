@@ -2,6 +2,7 @@ package codecrusaders.business.impl;
 
 import codecrusaders.business.ITestSetManager;
 import codecrusaders.business.impl.converters.RegrTestConverter;
+import codecrusaders.business.impl.converters.SubTestConverter;
 import codecrusaders.business.impl.converters.TestSetConverter;
 import codecrusaders.domain.*;
 import codecrusaders.repository.RegrTestRepository;
@@ -46,6 +47,30 @@ public class TestSetManager implements ITestSetManager {
     public CountFailedTestStepResponse countFailedTestStep(CountFailedTestStepRequest request) {
         return CountFailedTestStepResponse.builder().failedCounter(testSetRepo.countFailedTestStepsByTestId(request.getId())).build();
     }
+
+    @Override
+    public CountFailedTestStepResponse countTotalTestStep(CountFailedTestStepRequest request) {
+        return CountFailedTestStepResponse.builder().failedCounter(testSetRepo.countTotalTestStepsByTestId(request.getId())).build();
+    }
+
+    @Override
+    public GetLatestTestSetsResponse getLatestTestSets() {
+        List<TestSet> latestTestSets = testSetRepo.findLatestTestSets()
+                .stream()
+                .map(TestSetConverter::convert)
+                .toList();
+        return GetLatestTestSetsResponse.builder().latestTestSets(latestTestSets).build();
+    }
+
+    @Override
+    public Optional<TestSet> findTestSet(long testsetid) {
+
+
+        return testSetRepo.findById(testsetid).map(TestSetConverter::convert);
+    }
+
+
+
 
     @Override
     public GetTestsByTestSetIdResponse getTestsByTestSetsId(GetTestsByTestSetIdRequest request) {

@@ -33,9 +33,34 @@ public class TestSetController {
         GetTestsByTestSetIdResponse response = testSetManager.getTestsByTestSetsId(GetTestsByTestSetIdRequest.builder().id(id).build());
         return ResponseEntity.ok(response);
     }
+
+
+    @GetMapping("/individual/{testsetid}")
+    public ResponseEntity<TestSet> GetTestByIDResponse(@PathVariable(value = "testsetid") final long id) {
+        final Optional<TestSet> testsetOptional = testSetManager.findTestSet(id);
+        if (testsetOptional.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(testsetOptional.get());
+    }
+
+
+
+
     @GetMapping("/failedCounter/{id}")
     public ResponseEntity<CountFailedTestStepResponse> getFailedCounterOfATest(@PathVariable Long id){
         CountFailedTestStepResponse response = testSetManager.countFailedTestStep(CountFailedTestStepRequest.builder().id(id).build());
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/totalCounter/{id}")
+    public ResponseEntity<CountFailedTestStepResponse> getAllCounterOfATest(@PathVariable Long id) {
+        CountFailedTestStepResponse response = testSetManager.countTotalTestStep(CountFailedTestStepRequest.builder().id(id).build());
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/latest")
+    public ResponseEntity<GetLatestTestSetsResponse> getLatestRegrTests(){
+        return ResponseEntity.ok(testSetManager.getLatestTestSets());
     }
 }

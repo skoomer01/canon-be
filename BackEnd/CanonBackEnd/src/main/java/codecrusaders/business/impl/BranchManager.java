@@ -4,6 +4,7 @@ import codecrusaders.business.IBranchManager;
 import codecrusaders.business.exception.BranchAlreadyExistsException;
 import codecrusaders.business.impl.converters.BranchConverter;
 import codecrusaders.business.impl.converters.TestBatchConverter;
+import codecrusaders.business.impl.converters.TestSetConverter;
 import codecrusaders.business.impl.converters.UserConverter;
 import codecrusaders.domain.*;
 import codecrusaders.domain.Http.*;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import codecrusaders.domain.AccessToken;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -88,4 +90,13 @@ public class BranchManager implements IBranchManager {
                 .testBatchList(testBatchesList)
                 .build();
     }
+
+    @Override
+    public Optional<Branch> findById(long branchid) {
+
+
+        return branchRepository.findById(branchid).map(BranchConverter::convert);
+    }
+
+
 }
