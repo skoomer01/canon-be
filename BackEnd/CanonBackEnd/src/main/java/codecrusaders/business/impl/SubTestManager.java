@@ -3,6 +3,7 @@ package codecrusaders.business.impl;
 import codecrusaders.business.ISubTestManager;
 import codecrusaders.business.impl.converters.SubTestConverter;
 
+import codecrusaders.business.impl.converters.TestBatchConverter;
 import codecrusaders.domain.*;
 import codecrusaders.repository.SubTestRepository;
 import codecrusaders.repository.entity.SubTestEntity;
@@ -10,6 +11,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -67,14 +69,13 @@ public class SubTestManager implements ISubTestManager {
     }
 
     @Override
-    public GetSubTestsResponse findById(Long id) {
-        List<SubTest> subTests = subTestRepository.findById(id)
-                .stream()
-                .map(SubTestConverter::convert)
-                .toList();
+    public Optional<SubTest> findById(long subtestid) {
 
-        return GetSubTestsResponse.builder()
-                .subTests(subTests)
-                .build();
+
+        return subTestRepository.findById(subtestid).map(SubTestConverter::convert);
     }
+
+
+
+
 }
