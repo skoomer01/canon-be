@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5a76b54-d6f1-462f-8dc2-53d0500c83f8" name="Changes" comment="added endpoints for developing the homepage">
+    <list default="true" id="a5a76b54-d6f1-462f-8dc2-53d0500c83f8" name="Changes" comment="stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +112,7 @@
       <recent name="codecrusaders.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CanonBackEnd [bootRun]">
+  <component name="RunManager" selected="Gradle.CanonBackEnd [clean]">
     <configuration name="CanonBackEnd [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -210,10 +210,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CanonBackEnd [clean]" />
         <item itemvalue="Gradle.CanonBackEnd [bootRun]" />
         <item itemvalue="Gradle.CanonBackEnd [compileJava]" />
         <item itemvalue="Gradle.CanonBackEnd [build]" />
-        <item itemvalue="Gradle.CanonBackEnd [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -233,7 +233,8 @@
       <workItem from="1686571217592" duration="13770000" />
       <workItem from="1686647114565" duration="1354000" />
       <workItem from="1686664671206" duration="1416000" />
-      <workItem from="1686747270545" duration="3002000" />
+      <workItem from="1686747270545" duration="3680000" />
+      <workItem from="1686760473640" duration="315000" />
     </task>
     <task id="LOCAL-00001" summary="added endpoints for developing the homepage">
       <created>1686606195069</created>
@@ -242,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686606195070</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="stuff">
+      <created>1686760375068</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686760375069</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +281,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added endpoints for developing the homepage" />
-    <option name="LAST_COMMIT_MESSAGE" value="added endpoints for developing the homepage" />
+    <MESSAGE value="stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
   </component>
 </project>
