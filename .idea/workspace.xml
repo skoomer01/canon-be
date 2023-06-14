@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5a76b54-d6f1-462f-8dc2-53d0500c83f8" name="Changes" comment="">
+    <list default="true" id="a5a76b54-d6f1-462f-8dc2-53d0500c83f8" name="Changes" comment="added endpoints for developing the homepage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/IRegressionTestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/IRegressionTestManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/ITestSetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/ITestSetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/impl/RegrTestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/impl/RegrTestManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/impl/TestSetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/business/impl/TestSetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/controller/RegressionTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/controller/RegressionTestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/controller/TestSetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/controller/TestSetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/repository/RegrTestRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/repository/RegrTestRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/repository/TestSetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/CanonBackEnd/src/main/java/codecrusaders/repository/TestSetRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,8 +230,19 @@
       <workItem from="1684343621146" duration="605000" />
       <workItem from="1684344228046" duration="3227000" />
       <workItem from="1686571187763" duration="4000" />
-      <workItem from="1686571217592" duration="13093000" />
+      <workItem from="1686571217592" duration="13770000" />
+      <workItem from="1686647114565" duration="1354000" />
+      <workItem from="1686664671206" duration="1416000" />
+      <workItem from="1686747270545" duration="3002000" />
     </task>
+    <task id="LOCAL-00001" summary="added endpoints for developing the homepage">
+      <created>1686606195069</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686606195070</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,5 +270,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added endpoints for developing the homepage" />
+    <option name="LAST_COMMIT_MESSAGE" value="added endpoints for developing the homepage" />
   </component>
 </project>
