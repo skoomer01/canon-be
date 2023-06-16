@@ -28,7 +28,7 @@ public class SubTestManager implements ISubTestManager {
 
     private SubTestEntity saveNewSubTest(CreateSubTestRequest request) {
         SubTestEntity newSubTest = SubTestEntity.builder()
-                //.testResult(request.isTestResult())
+                .subTestName(request.getSubtestname())
                 .testID(request.getTestId())
                 .build();
         return subTestRepository.save(newSubTest);

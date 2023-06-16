@@ -24,9 +24,9 @@ public class RegrTestManager implements IRegressionTestManager {
     }
     private Optional<RegressionTestEntity> saveNewRegrTest(CreateRegrTestRequest request){
         RegressionTestEntity newRegrTest = RegressionTestEntity.builder()
-//                .testSetId(request.getTestSetId())
-                //.testResult(request.isTestResult())
-                //.duration(request.getDuration())
+                .testName(request.getTestname())
+                .testDate(request.getTestdate())
+                .testSetId(request.getTestSetId())
                 .build();
         return Optional.of(regrTestRepo.save(newRegrTest));
     }

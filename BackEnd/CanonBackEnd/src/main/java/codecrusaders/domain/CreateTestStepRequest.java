@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -12,10 +13,14 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateTestStepRequest {
-    @NotNull
+
+    private String testStepName;
+
     private boolean testResult;
-    @NotNull
-    private Long subTestId;
+
+    private long errorID;
+
     private String description;
-    private ErrorMessage message;
+
+    private long subTestID;
 }

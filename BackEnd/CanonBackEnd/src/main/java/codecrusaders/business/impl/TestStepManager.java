@@ -31,18 +31,13 @@ public class TestStepManager implements ITestStepManager {
             TestStepEntity newTestStep = TestStepEntity.builder()
                     .testResult(request.isTestResult())
                     .description(request.getDescription())
-                    //.message(convertErrorMessage(request.getMessage()))
-                    .subTestID(request.getSubTestId())
+                    .testStepName(request.getTestStepName())
+                    .errorID(request.getErrorID())
+                    .subTestID(request.getSubTestID())
                     .build();
-            errorMessageRepository.save(convertErrorMessage(request.getMessage()));
             return testStepRepository.save(newTestStep);
     }
-    private ErrorEntity convertErrorMessage(ErrorMessage errorMessage)
-    {
-        return ErrorEntity.builder()
-                //.message(errorMessage.getMessage())
-                .build();
-    }
+
 
     @Override
     public GetTestStepsResponse getTestSteps() {
