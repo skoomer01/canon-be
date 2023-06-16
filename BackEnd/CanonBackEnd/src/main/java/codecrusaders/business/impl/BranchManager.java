@@ -28,9 +28,7 @@ public class BranchManager implements IBranchManager {
     @Override
     public RegisterBranchResponse registerBranch(RegisterBranchRequest request) {
 
-//        if(branchRepository.findByName(request.getBranchName())){
-//            throw new BranchAlreadyExistsException();
-//        }
+
         UserConverter userConverter = new UserConverter();
         BranchEntity branchEntity = saveBranch(request);
         return RegisterBranchResponse.builder()
@@ -43,6 +41,7 @@ public class BranchManager implements IBranchManager {
 
         BranchEntity temp = BranchEntity.builder()
                 .branchName(branch.getBranchName())
+                .isPublic(branch.isPublic())
                 .build();
         return branchRepository.save(temp);
 

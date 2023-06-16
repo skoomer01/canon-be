@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CreateSubTestRequest {
     @NotNull
-    private boolean testResult;
+    private String subtestname;
     @NotNull
     private Long testId;
 }

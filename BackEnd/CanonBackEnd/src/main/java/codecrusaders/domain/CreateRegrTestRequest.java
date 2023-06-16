@@ -4,6 +4,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -11,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateRegrTestRequest {
-    private boolean testResult;
-    private int duration ;
+    private String testname;
+    private LocalDateTime testdate ;
     private Long testSetId;
 }

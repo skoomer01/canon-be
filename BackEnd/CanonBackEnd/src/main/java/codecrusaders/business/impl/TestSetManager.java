@@ -27,7 +27,9 @@ public class TestSetManager implements ITestSetManager {
     }
     private Optional<TestSetEntity> saveNewTestSet(CreateTestSetRequest request){
         TestSetEntity newTestSet = TestSetEntity.builder()
-//                .testBatch(request.getTestBatchId())
+                .testSetName(request.getTestSetName())
+                .testBatchId(request.getTestBatchId())
+                .testSetTime(request.getTestSetTime())
                 .build();
         return Optional.of(testSetRepo.save(newTestSet));
     }
