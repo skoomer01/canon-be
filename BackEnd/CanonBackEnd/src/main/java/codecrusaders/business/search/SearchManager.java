@@ -1,6 +1,5 @@
-package codecrusaders.business.impl;
+package codecrusaders.business.search;
 
-import codecrusaders.business.IBranchManager;
 import codecrusaders.business.ISearchManager;
 import codecrusaders.business.impl.converters.*;
 import codecrusaders.domain.*;

@@ -16,5 +16,4 @@ public class TestSet {
     private String name;
     private Long testBatchId;
     private Date testSetTime;
-    private List<RegressionTest> regressionTests;
 }

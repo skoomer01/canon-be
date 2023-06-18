@@ -1,7 +1,7 @@
 import codecrusaders.Main;
 import codecrusaders.business.ISearchManager;
 import codecrusaders.business.ITestStepManager;
-import codecrusaders.business.impl.SearchManager;
+import codecrusaders.business.search.SearchManager;
 import codecrusaders.business.impl.TestStepManager;
 import codecrusaders.domain.SearchResult;
 import codecrusaders.domain.TestStep;
