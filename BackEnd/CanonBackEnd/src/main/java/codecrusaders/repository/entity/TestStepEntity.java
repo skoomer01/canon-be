@@ -23,9 +23,9 @@ public class TestStepEntity {
     @Column(name = "testresult")
     private boolean testResult;
     @Column(name = "errorid")
-    private long errorID;
+    private Long errorID;
     @Column(name = "description")
     private String description;
     @Column(name = "subtestid")
-    private long subTestID;
+    private Long subTestID;
 }
