@@ -27,7 +27,7 @@ public class ErrorMessageController {
     @GetMapping
     public ResponseEntity<GetErrorMessageResponse> getAllErrors(){
         return ResponseEntity.ok(errorMessageManager.getAllErrorMessages());
-    }git a
+    }
     @GetMapping("/{id}")
     public ResponseEntity<ErrorMessage> getErrorById(@PathVariable(value = "id") final Long id){
         final Optional<ErrorMessage> errorMessageOptional = errorMessageManager.getErrorById(id);
