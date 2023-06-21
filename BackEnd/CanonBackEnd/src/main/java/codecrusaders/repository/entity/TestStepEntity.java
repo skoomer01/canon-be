@@ -27,5 +27,5 @@ public class TestStepEntity {
     @Column(name = "description")
     private String description;
     @Column(name = "subtestid")
-    private long subTestID;
+    private Long subTestID;
 }
