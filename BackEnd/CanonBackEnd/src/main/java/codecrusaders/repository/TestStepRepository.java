@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,7 +22,9 @@ public interface TestStepRepository extends JpaRepository<TestStepEntity, Long> 
     List<TestStepEntity> findBySubTestID(Long subTestId);
 
     Optional<TestStepEntity> findById(Long id);
-
+    @Query(value = "select * from teststeps where  errorid = :id",
+            nativeQuery = true)
+    List<TestStepEntity> getSimilarTestSteps(@Param("id") Long id);
 
     @Query("SELECT t FROM TestStepEntity t " +
             "JOIN SubTestEntity st ON t.subTestID = st.id " +
