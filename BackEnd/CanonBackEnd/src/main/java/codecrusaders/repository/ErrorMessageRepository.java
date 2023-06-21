@@ -1,6 +1,5 @@
 package codecrusaders.repository;
 
-import codecrusaders.repository.entity.BranchEntity;
 import codecrusaders.repository.entity.ErrorEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -41,6 +41,7 @@ public interface TestSetRepository extends JpaRepository<TestSetEntity, Long> {
     List<TestSetEntity> getAllTestSetsByBatchId(@Param("testbatchid")Long testBatchId);
 
     @Query(
+//            value = "SELECT * FROM testsets ORDER BY testsetid DESC LIMIT 6;",
             value = "SELECT TOP 6 * FROM testsets ORDER BY testsetid DESC",
             nativeQuery = true
     )

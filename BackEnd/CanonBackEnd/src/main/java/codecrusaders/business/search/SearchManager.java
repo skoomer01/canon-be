@@ -156,16 +156,131 @@ public class SearchManager implements ISearchManager {
         }
     }
 
-    public List<SearchResult> getByErrorIdFromPrivate(Long errorId){
-        return null;
+    public List<SearchResult> getByErrorIdFromPrivate(Long errorId, Long userId, int pageSize, int pageNumber){
+        try{
+            List<SearchResult> results = new ArrayList<>();
+            Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
+            Page<TestStepEntity> pageResult = testStepRepository.findByErrorIdFromPrivateBranchWithDescOrder(errorId, userId, pageable);
+            System.out.println(pageResult);
+            List<TestStep> testSteps = pageResult.getContent()
+                    .stream()
+                    .map(TestStepConverter::convert)
+                    .toList();
+            for (TestStep testStep : testSteps) {
+                SearchResult searchResult = constructFromBranchToTestStep(testStep.getId());
+                results.add(searchResult);
+            }
+            return results;
+        }
+        catch(Exception ex){
+            logger.error(ex.getMessage());
+            throw ex;
+        }
     }
 
-    public List<SearchResult> getByVersionFromPrivate(String version){
-        return null;
+    public int countPagesForErrorIdFromPrivate(Long errorId, Long userId, int pageSize){
+        try{
+            int totalTestSteps = testStepRepository.countByErrorIdFromPrivateBranch(errorId, userId);
+            System.out.println("Total Test Steps: " + totalTestSteps);
+            int totalPages = totalTestSteps / pageSize;
+            if (totalTestSteps % pageSize != 0) {
+                totalPages++;
+            }
+            System.out.println(totalPages);
+            return totalPages;
+        }
+        catch(Exception ex){
+            logger.error(ex.getMessage());
+            throw ex;
+        }
     }
 
-    public List<SearchResult> getByCommitFromPrivate(String commit){
-        return null;
+    public List<SearchResult> getByVersionFromPrivate(String version, Long userId, int pageSize, int pageNumber){
+        try{
+            List<SearchResult> results = new ArrayList<>();
+
+            Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
+            Page<TestBatchEntity> pageResult = testBatchRepository.getTestBatchesByVersionFromPrivate(version, userId, pageable);
+
+            System.out.println(pageResult);
+
+            List<TestBatch> testBatches = pageResult.getContent()
+                    .stream()
+                    .map(TestBatchConverter::convert)
+                    .toList();
+
+            for (TestBatch testBatch : testBatches) {
+                SearchResult searchResult = constructFromBranchToTestBatch(testBatch.getId());
+                results.add(searchResult);
+            }
+
+            return results;
+        }
+        catch(Exception ex){
+            logger.error(ex.getMessage());
+            throw ex;
+        }
+    }
+
+    public List<SearchResult> getByCommitFromPrivate(String commit, Long userId, int pageSize, int pageNumber){
+        try{
+            List<SearchResult> results = new ArrayList<>();
+
+            Pageable pageable = PageRequest.of(pageNumber - 1, pageSize);
+            Page<TestBatchEntity> pageResult = testBatchRepository.getTestBatchesByCommitFromPrivate(commit, userId, pageable);
+
+            System.out.println(pageResult);
+
+            List<TestBatch> testBatches = pageResult.getContent()
+                    .stream()
+                    .map(TestBatchConverter::convert)
+                    .toList();
+
+            for (TestBatch testBatch : testBatches) {
+                SearchResult searchResult = constructFromBranchToTestBatch(testBatch.getId());
+                results.add(searchResult);
+            }
+
+            return results;
+        }
+        catch(Exception ex){
+            logger.error(ex.getMessage());
+            throw ex;
+        }
+    }
+
+    public int countPagesGetByVersionFromPrivate(String version, Long userId, int pageSize){
+        try{
+            int totalTestBatches = testBatchRepository.countTestBatchesByVersionFromPrivate(version, userId);
+            System.out.println("Total Test Batches: " + totalTestBatches);
+            int totalPages = totalTestBatches / pageSize;
+            if (totalTestBatches % pageSize != 0) {
+                totalPages++;
+            }
+            System.out.println(totalPages);
+            return totalPages;
+        }
+        catch(Exception ex){
+            logger.error(ex.getMessage());
+            throw ex;
+        }
+    }
+
+    public int countPagesGetByCommitFromPrivate(String commit, Long userId, int pageSize){
+        try{
+            int totalTestBatches = testBatchRepository.countTestBatchesByCommitFromPrivate(commit, userId);
+            System.out.println("Total Test Batches: " + totalTestBatches);
+            int totalPages = totalTestBatches / pageSize;
+            if (totalTestBatches % pageSize != 0) {
+                totalPages++;
+            }
+            System.out.println(totalPages);
+            return totalPages;
+        }
+        catch(Exception ex){
+            logger.error(ex.getMessage());
+            throw ex;
+        }
     }
 
     private SearchResult constructFromBranchToTestStep(Long testStepId){

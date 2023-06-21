@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 @Data
@@ -14,4 +15,5 @@ public class Branch {
     private Long id;
     private String branchName;
     private Boolean isPublic;
+    private Long userid;
 }

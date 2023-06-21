@@ -22,7 +22,7 @@ public interface TestBatchRepository extends JpaRepository<TestBatchEntity, Long
 
     @Query(value = "SELECT COUNT(tb) FROM TestBatchEntity tb " +
             "JOIN BranchEntity br ON tb.branchId = br.id " +
-            "WHERE tb.version = ?1 AND br.isPublic = true")
+            "WHERE tb.version = ?1 AND br.isPublic = true ")
     int countTestBatchesByVersionFromPublic(String version);
 
     @Query(value = "SELECT tb FROM TestBatchEntity tb " +
@@ -33,6 +33,28 @@ public interface TestBatchRepository extends JpaRepository<TestBatchEntity, Long
 
     @Query(value = "SELECT COUNT(tb) FROM TestBatchEntity tb " +
             "JOIN BranchEntity br ON tb.branchId = br.id " +
-            "WHERE tb.commitShal = ?1 AND br.isPublic = true")
+            "WHERE tb.commitShal = ?1 AND br.isPublic = true ")
     int countTestBatchesByCommitFromPublic(String commitShal);
+
+    @Query(value = "SELECT tb FROM TestBatchEntity tb " +
+            "JOIN BranchEntity br ON tb.branchId = br.id " +
+            "WHERE tb.version = ?1 AND br.isPublic = false AND br.userid = ?2 " +
+            "ORDER BY tb.id DESC")
+    Page<TestBatchEntity> getTestBatchesByVersionFromPrivate(String version, Long userId, Pageable pageable);
+
+    @Query(value = "SELECT COUNT(tb) FROM TestBatchEntity tb " +
+            "JOIN BranchEntity br ON tb.branchId = br.id " +
+            "WHERE tb.version = ?1 AND br.isPublic = false AND br.userid = ?2 ")
+    int countTestBatchesByVersionFromPrivate(String version, Long userId);
+
+    @Query(value = "SELECT tb FROM TestBatchEntity tb " +
+            "JOIN BranchEntity br ON tb.branchId = br.id " +
+            "WHERE tb.commitShal = ?1 AND br.isPublic = false AND br.userid = ?2 " +
+            "ORDER BY tb.id DESC")
+    Page<TestBatchEntity> getTestBatchesByCommitFromPrivate(String commitShal, Long userId, Pageable pageable);
+
+    @Query(value = "SELECT COUNT(tb) FROM TestBatchEntity tb " +
+            "JOIN BranchEntity br ON tb.branchId = br.id " +
+            "WHERE tb.commitShal = ?1 AND br.isPublic = false AND br.userid = ?2 ")
+    int countTestBatchesByCommitFromPrivate(String commitShal, Long userId);
 }

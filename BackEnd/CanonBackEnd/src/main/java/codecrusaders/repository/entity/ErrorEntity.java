@@ -15,9 +15,8 @@ import javax.persistence.*;
 @Builder
 public class ErrorEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ErrorID")
+    @Column(name = "errorid")
     private Long errorid;
-    @Column(name = "ErrorMessage")
+    @Column(name = "errormessage")
     private String errorMessage;
 }

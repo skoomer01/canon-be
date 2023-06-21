@@ -49,8 +49,8 @@ public class BranchManagerTest {
     @Test
     void shouldGetAllPrivateBranches() {
         //arrange
-        List<BranchEntity> results = List.of(new BranchEntity(2L,"name",false));
-        List<Branch> result = List.of(new Branch(2L,"name",false));
+        List<BranchEntity> results = List.of(BranchEntity.builder().id(2L).branchName("name").isPublic(false).build());
+        List<Branch> result = List.of(Branch.builder().id(2L).branchName("name").isPublic(false).build());
         when(branchRepository.findAllPrivate(1L)).thenReturn(results);
         when(accessToken.getUserId()).thenReturn(1L);
         //act
@@ -62,8 +62,8 @@ public class BranchManagerTest {
     @Test
     void shouldGetAllPublicBranches() {
         //arrange
-        List<BranchEntity> results = List.of(new BranchEntity(2L,"name",true));
-        List<Branch> result = List.of(new Branch(2L,"name",true));
+        List<BranchEntity> results = List.of(BranchEntity.builder().id(2L).branchName("name").isPublic(true).build());
+        List<Branch> result = List.of(Branch.builder().id(2L).branchName("name").isPublic(true).build());
         when(branchRepository.findAllPublic()).thenReturn(results);
         //act
         GetAllBranchesResponse actualResponse = branchManager.getAllPublicBranches();

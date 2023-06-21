@@ -1,14 +1,11 @@
 package codecrusaders.repository.entity;
 
-import codecrusaders.domain.TestBatch;
-import codecrusaders.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
@@ -23,7 +20,12 @@ public class BranchEntity {
     private Long id;
     @Column(name = "branchname")
     private String branchName;
+
+    @Column(name = "userid")
+    private Long userid;
+
     @Column(name = "ispublic")
     private boolean isPublic;
 
 }
+

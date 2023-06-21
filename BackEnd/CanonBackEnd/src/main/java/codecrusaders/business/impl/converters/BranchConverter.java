@@ -15,6 +15,7 @@ public class BranchConverter {
                 .id(branchEntity.getId())
                 .branchName(branchEntity.getBranchName())
                 .isPublic(branchEntity.isPublic())
+                .userid(branchEntity.getUserid())
                 .build();
 
     }}
